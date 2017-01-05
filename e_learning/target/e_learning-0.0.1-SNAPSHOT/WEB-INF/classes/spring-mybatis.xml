@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+<!-- 自动扫描的目录 -->
+<context:component-scan base-package="com.ang.elearning"></context:component-scan>
+
+<!-- 引入配置文件 -->
+<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<property name="location" value="classpath:db.properties"></property>
+</bean>
+
+<!-- 配置dbcp数据源 -->
+<!-- destroy-method="close"保证当spring不在Web Container或是EJB Container中的情况下，在tomcat退出时，
+调用AbstractApplicationContext的close方法，其实就是调用context中beanFactory的destroySingletons()方法 -->
+<bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+<property name="driverClassName" value="${driver}"></property>
+<property name="url" value="${url}"></property>
+<property name="username" value="${username}"></property>
+<property name="password" value="${password}"></property>
+<!-- 初始化连接大小 -->
+<property name="initialSize" value="${initialSize}"></property>
+<!-- 连接池最大数量 -->
+<property name="maxActive" value="${maxActive}"></property>
+<!-- 连接池最大空闲 -->
+<property name="maxIdle" value="${maxIdle}"></property>
+<!-- 连接池最小空闲 -->
+<property name="minIdle" value="${minIdle}"></property>
+<!-- 获取连接最大等待时间 -->
+<property name="maxWait" value="${maxWait}"></property>
+</bean>
+
+<!-- 配置SqlSessionFactoryBean -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<property name="dataSource" ref="datasource"></property>
+
+<!-- 指定扫描mybatis映射文件的目录 -->
+<property name="mapperLocations" value="classpath:com/ang/elearning/mapping/*.xml"></property>
+</bean>
+
+<!-- 为每一个mapper接口手动配置MapperFactoryBean，不推荐，推荐使用下面的方法 -->
+<!-- 
+<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+<property name="mapperInterface" value="com.ang.elearning.dao.UserMapper"></property>
+<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+</bean>
+ -->
+
+<!-- 注册MapperScannerConfigurer，自动创建MapperFactoryBean -->
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+
+<!-- basePackage指定mapper接口所在的包名，MapperScannerConfigurer会查找该类路径下的接口并自动为其创建MapperFactoryBean -->
+<property name="basePackage" value="com.ang.elearning.dao"></property>
+
+<!-- 当只有一个datasource时，不用指定，因为MapperScannerConfigurer会自动装配MapperFactoryBean
+但是，当有多个datasource时，自动装配可能失效。另外，这里配置的是bean的名称，所以不能用ref
+ -->
+<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+</bean>
+
+<!-- 配置事务管理器 -->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+<property name="dataSource" ref="datasource"></property>
+</bean>
+
+</beans>
