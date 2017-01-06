@@ -5,6 +5,8 @@ src/main/webapp/WEB-INF/classes/*
 
 # 忽略项目配置文件,避免冲突
 
+# 忽略README.md文件,避免冲突
+README.md
 
 
 #忽略日志文件
