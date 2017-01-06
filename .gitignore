@@ -1,0 +1,15 @@
+﻿#忽略生成的target
+target/*
+#忽略编译生成的class文件
+src/main/webapp/WEB-INF/classes/*
+
+# 忽略项目配置文件,避免冲突
+
+
+
+#忽略日志文件
+C:/*
+
+# 忽略db.properties
+src/main/resources/db.properties
+
