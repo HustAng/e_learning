@@ -8,7 +8,7 @@ src/main/webapp/WEB-INF/classes/*
 # 忽略README.md文件,避免冲突
 README.md
 
-# 想网
+
 #忽略日志文件
 C:/*
 
