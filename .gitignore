@@ -22,4 +22,4 @@ logs/ssm.log
 
 # 忽略db.properties
 src/main/resources/db.properties
-/target/
+
