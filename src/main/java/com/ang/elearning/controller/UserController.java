@@ -19,7 +19,7 @@ public class UserController {
 	@Resource
 	private IUserService userService;
 	
-	//REST·ç¸ñ
+	//RESTé£Žæ ¼
 	@RequestMapping(value="/getUserById/{id}",method=RequestMethod.GET)
 	public ModelAndView testGetUserById(@PathVariable("id") Integer id){
 		ModelAndView modelAndView = new ModelAndView("test");

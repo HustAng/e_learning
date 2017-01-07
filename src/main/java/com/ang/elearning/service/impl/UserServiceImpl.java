@@ -12,7 +12,7 @@ import com.ang.elearning.service.IUserService;
 @Service("userService")
 public class UserServiceImpl implements IUserService {
 	
-	//推荐使用@Resource而不是@Autowired
+	//鎺ㄨ崘浣跨敤@Resource鑰屼笉鏄疈Autowired
 	@Resource
 	private UserMapper userDao;
 	
