@@ -6,7 +6,7 @@
 *.ear
  
 # ignore Maven generated target folders
-target
+target/*
  
 # ignore eclipse files
 .project
