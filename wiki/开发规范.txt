@@ -1,0 +1,24 @@
+1. 数据库命名规则： 所有的单词之间全部以 下划线分隔  _   比如project_skill
+
+2. 类名全部不加s 比如Project而不是Projects
+
+3. 对于List集合命名全部以   xxxList   命名
+
+4. errorCode: {
+	0: '请求失败'
+	1: '请求成功'
+	2: '请求成功，但未查找到数据'
+	3: '请求成功，且有数据返回'
+	4: '查询参数错误'
+}
+
+5.【前端】——class以分割线命名，id以驼峰法命名，js中函数和变量以驼峰法命名
+
+6.【前端】——文件命名：html文件名不加大写，全部小写，其余css和js用驼峰命名
+
+7. 服务器端保存文件路径规范：
+用户头像目录
+e_learning/file/user/用户id/avator/图片名称.jpg
+e_learning/file/user/default/avator/图片名称.jpg (多几个)
+
+
