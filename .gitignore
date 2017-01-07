@@ -1,0 +1,13 @@
+#忽略生成的target
+target/*
+
+
+# 忽略项目配置文件,避免冲突
+
+# 忽略README.md文件,避免冲突
+README.md
+
+
+# 忽略db.properties
+src/main/resources/db.properties
+
