@@ -1,16 +1,24 @@
-﻿#忽略生成的target
-target/*
-#忽略编译生成的class文件
-src/main/webapp/WEB-INF/classes/*
-
-# 忽略项目配置文件,避免冲突
+﻿*.class
+ 
+# Package Files #
+*.jar
+*.war
+*.ear
+ 
+# ignore Maven generated target folders
+target
+ 
+# ignore eclipse files
+.project
+.classpath
+.settings
+.metadata
 
 # 忽略README.md文件,避免冲突
 README.md
 
-
 #忽略日志文件
-C:/*
+logs/ssm.log
 
 # 忽略db.properties
 src/main/resources/db.properties
