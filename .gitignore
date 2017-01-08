@@ -9,10 +9,10 @@
 target/*
  
 # ignore eclipse files
-.project
-.classpath
-.settings
-.metadata
+# .project
+# .classpath
+# .settings
+# .metadata
 
 # 忽略README.md文件,避免冲突
 README.md
