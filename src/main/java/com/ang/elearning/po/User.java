@@ -132,14 +132,4 @@ public class User {
     public void setReserve2(String reserve2) {
         this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", tel="
-				+ tel + ", authority=" + authority + ", sex=" + sex + ", birth=" + birth + ", balance=" + balance
-				+ ", img=" + img + ", backgroud=" + backgroud + ", reserve1=" + reserve1 + ", reserve2=" + reserve2
-				+ "]";
-	}
-    
-    
 }

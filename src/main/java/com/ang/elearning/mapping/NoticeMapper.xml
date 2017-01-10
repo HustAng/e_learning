@@ -3,11 +3,11 @@
 <mapper namespace="com.ang.elearning.dao.NoticeMapper" >
   <resultMap id="BaseResultMap" type="com.ang.elearning.po.Notice" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
     <result column="admin_id" property="adminId" jdbcType="INTEGER" />
     <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
-    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, content, time, admin_id, reserve1, reserve2
+    id, title, content, time, admin_id, reserve1
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.NoticeExample" >
     select
@@ -101,11 +101,11 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.ang.elearning.po.Notice" >
-    insert into tb_notice (id, content, time, 
-      admin_id, reserve1, reserve2
+    insert into tb_notice (id, title, content, 
+      time, admin_id, reserve1
       )
-    values (#{id,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
-      #{adminId,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP}, #{adminId,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ang.elearning.po.Notice" >
@@ -113,6 +113,9 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="title != null" >
+        title,
       </if>
       <if test="content != null" >
         content,
@@ -126,13 +129,13 @@
       <if test="reserve1 != null" >
         reserve1,
       </if>
-      <if test="reserve2 != null" >
-        reserve2,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
@@ -145,9 +148,6 @@
       </if>
       <if test="reserve1 != null" >
         #{reserve1,jdbcType=VARCHAR},
-      </if>
-      <if test="reserve2 != null" >
-        #{reserve2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -163,6 +163,9 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
       </if>
@@ -175,9 +178,6 @@
       <if test="record.reserve1 != null" >
         reserve1 = #{record.reserve1,jdbcType=VARCHAR},
       </if>
-      <if test="record.reserve2 != null" >
-        reserve2 = #{record.reserve2,jdbcType=VARCHAR},
-      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -186,11 +186,11 @@
   <update id="updateByExample" parameterType="map" >
     update tb_notice
     set id = #{record.id,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=TIMESTAMP},
       admin_id = #{record.adminId,jdbcType=INTEGER},
-      reserve1 = #{record.reserve1,jdbcType=VARCHAR},
-      reserve2 = #{record.reserve2,jdbcType=VARCHAR}
+      reserve1 = #{record.reserve1,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -198,6 +198,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.ang.elearning.po.Notice" >
     update tb_notice
     <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
       </if>
@@ -210,19 +213,16 @@
       <if test="reserve1 != null" >
         reserve1 = #{reserve1,jdbcType=VARCHAR},
       </if>
-      <if test="reserve2 != null" >
-        reserve2 = #{reserve2,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ang.elearning.po.Notice" >
     update tb_notice
-    set content = #{content,jdbcType=VARCHAR},
+    set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP},
       admin_id = #{adminId,jdbcType=INTEGER},
-      reserve1 = #{reserve1,jdbcType=VARCHAR},
-      reserve2 = #{reserve2,jdbcType=VARCHAR}
+      reserve1 = #{reserve1,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

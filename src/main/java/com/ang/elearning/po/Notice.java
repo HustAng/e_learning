@@ -5,6 +5,8 @@ import java.util.Date;
 public class Notice {
     private Integer id;
 
+    private String title;
+
     private String content;
 
     private Date time;
@@ -13,14 +15,20 @@ public class Notice {
 
     private String reserve1;
 
-    private String reserve2;
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getContent() {
@@ -53,13 +61,5 @@ public class Notice {
 
     public void setReserve1(String reserve1) {
         this.reserve1 = reserve1 == null ? null : reserve1.trim();
-    }
-
-    public String getReserve2() {
-        return reserve2;
-    }
-
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 }

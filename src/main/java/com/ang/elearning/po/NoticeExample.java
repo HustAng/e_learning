@@ -165,6 +165,76 @@ public class NoticeExample {
             return (Criteria) this;
         }
 
+        public Criteria andTitleIsNull() {
+            addCriterion("title is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleIsNotNull() {
+            addCriterion("title is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleEqualTo(String value) {
+            addCriterion("title =", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotEqualTo(String value) {
+            addCriterion("title <>", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleGreaterThan(String value) {
+            addCriterion("title >", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("title >=", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleLessThan(String value) {
+            addCriterion("title <", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleLessThanOrEqualTo(String value) {
+            addCriterion("title <=", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleLike(String value) {
+            addCriterion("title like", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotLike(String value) {
+            addCriterion("title not like", value, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleIn(List<String> values) {
+            addCriterion("title in", values, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotIn(List<String> values) {
+            addCriterion("title not in", values, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleBetween(String value1, String value2) {
+            addCriterion("title between", value1, value2, "title");
+            return (Criteria) this;
+        }
+
+        public Criteria andTitleNotBetween(String value1, String value2) {
+            addCriterion("title not between", value1, value2, "title");
+            return (Criteria) this;
+        }
+
         public Criteria andContentIsNull() {
             addCriterion("content is null");
             return (Criteria) this;
@@ -422,76 +492,6 @@ public class NoticeExample {
 
         public Criteria andReserve1NotBetween(String value1, String value2) {
             addCriterion("reserve1 not between", value1, value2, "reserve1");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2IsNull() {
-            addCriterion("reserve2 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2IsNotNull() {
-            addCriterion("reserve2 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2EqualTo(String value) {
-            addCriterion("reserve2 =", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2NotEqualTo(String value) {
-            addCriterion("reserve2 <>", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2GreaterThan(String value) {
-            addCriterion("reserve2 >", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2GreaterThanOrEqualTo(String value) {
-            addCriterion("reserve2 >=", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2LessThan(String value) {
-            addCriterion("reserve2 <", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2LessThanOrEqualTo(String value) {
-            addCriterion("reserve2 <=", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2Like(String value) {
-            addCriterion("reserve2 like", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2NotLike(String value) {
-            addCriterion("reserve2 not like", value, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2In(List<String> values) {
-            addCriterion("reserve2 in", values, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2NotIn(List<String> values) {
-            addCriterion("reserve2 not in", values, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2Between(String value1, String value2) {
-            addCriterion("reserve2 between", value1, value2, "reserve2");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve2NotBetween(String value1, String value2) {
-            addCriterion("reserve2 not between", value1, value2, "reserve2");
             return (Criteria) this;
         }
     }
