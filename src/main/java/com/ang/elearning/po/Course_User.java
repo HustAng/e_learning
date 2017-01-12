@@ -1,7 +1,9 @@
 package com.ang.elearning.po;
 
+import java.util.Date;
+
 public class Course_User {
-    private Long id;
+    private Integer id;
 
     private Integer courseId;
 
@@ -9,15 +11,15 @@ public class Course_User {
 
     private Float score;
 
-    private String reserve1;
+    private Date ordertime;
 
     private String reserve2;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,12 +47,12 @@ public class Course_User {
         this.score = score;
     }
 
-    public String getReserve1() {
-        return reserve1;
+    public Date getOrdertime() {
+        return ordertime;
     }
 
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    public void setOrdertime(Date ordertime) {
+        this.ordertime = ordertime;
     }
 
     public String getReserve2() {

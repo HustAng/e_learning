@@ -5,7 +5,8 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="word_id" property="wordId" jdbcType="INTEGER" />
-    <result column="mastered" property="mastered" jdbcType="INTEGER" />
+    <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, user_id, word_id, mastered
+    id, user_id, word_id, reserve1, reserve2
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.Word_UserExample" >
     select
@@ -100,9 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.ang.elearning.po.Word_User" >
     insert into tb_word_user (id, user_id, word_id, 
-      mastered)
+      reserve1, reserve2)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{wordId,jdbcType=INTEGER}, 
-      #{mastered,jdbcType=INTEGER})
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ang.elearning.po.Word_User" >
     insert into tb_word_user
@@ -116,8 +117,11 @@
       <if test="wordId != null" >
         word_id,
       </if>
-      <if test="mastered != null" >
-        mastered,
+      <if test="reserve1 != null" >
+        reserve1,
+      </if>
+      <if test="reserve2 != null" >
+        reserve2,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -130,8 +134,11 @@
       <if test="wordId != null" >
         #{wordId,jdbcType=INTEGER},
       </if>
-      <if test="mastered != null" >
-        #{mastered,jdbcType=INTEGER},
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -153,8 +160,11 @@
       <if test="record.wordId != null" >
         word_id = #{record.wordId,jdbcType=INTEGER},
       </if>
-      <if test="record.mastered != null" >
-        mastered = #{record.mastered,jdbcType=INTEGER},
+      <if test="record.reserve1 != null" >
+        reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reserve2 != null" >
+        reserve2 = #{record.reserve2,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -166,7 +176,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       user_id = #{record.userId,jdbcType=INTEGER},
       word_id = #{record.wordId,jdbcType=INTEGER},
-      mastered = #{record.mastered,jdbcType=INTEGER}
+      reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      reserve2 = #{record.reserve2,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -180,8 +191,11 @@
       <if test="wordId != null" >
         word_id = #{wordId,jdbcType=INTEGER},
       </if>
-      <if test="mastered != null" >
-        mastered = #{mastered,jdbcType=INTEGER},
+      <if test="reserve1 != null" >
+        reserve1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        reserve2 = #{reserve2,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -190,7 +204,8 @@
     update tb_word_user
     set user_id = #{userId,jdbcType=INTEGER},
       word_id = #{wordId,jdbcType=INTEGER},
-      mastered = #{mastered,jdbcType=INTEGER}
+      reserve1 = #{reserve1,jdbcType=VARCHAR},
+      reserve2 = #{reserve2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

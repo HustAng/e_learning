@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="noticetime" property="noticetime" jdbcType="TIMESTAMP" />
     <result column="admin_id" property="adminId" jdbcType="INTEGER" />
     <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
   </resultMap>
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, title, content, time, admin_id, reserve1
+    id, title, content, noticetime, admin_id, reserve1
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.NoticeExample" >
     select
@@ -102,10 +102,10 @@
   </delete>
   <insert id="insert" parameterType="com.ang.elearning.po.Notice" >
     insert into tb_notice (id, title, content, 
-      time, admin_id, reserve1
+      noticetime, admin_id, reserve1
       )
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{time,jdbcType=TIMESTAMP}, #{adminId,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}
+      #{noticetime,jdbcType=TIMESTAMP}, #{adminId,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ang.elearning.po.Notice" >
@@ -120,8 +120,8 @@
       <if test="content != null" >
         content,
       </if>
-      <if test="time != null" >
-        time,
+      <if test="noticetime != null" >
+        noticetime,
       </if>
       <if test="adminId != null" >
         admin_id,
@@ -140,8 +140,8 @@
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="time != null" >
-        #{time,jdbcType=TIMESTAMP},
+      <if test="noticetime != null" >
+        #{noticetime,jdbcType=TIMESTAMP},
       </if>
       <if test="adminId != null" >
         #{adminId,jdbcType=INTEGER},
@@ -169,8 +169,8 @@
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.time != null" >
-        time = #{record.time,jdbcType=TIMESTAMP},
+      <if test="record.noticetime != null" >
+        noticetime = #{record.noticetime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.adminId != null" >
         admin_id = #{record.adminId,jdbcType=INTEGER},
@@ -188,7 +188,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       title = #{record.title,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
-      time = #{record.time,jdbcType=TIMESTAMP},
+      noticetime = #{record.noticetime,jdbcType=TIMESTAMP},
       admin_id = #{record.adminId,jdbcType=INTEGER},
       reserve1 = #{record.reserve1,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -204,8 +204,8 @@
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="time != null" >
-        time = #{time,jdbcType=TIMESTAMP},
+      <if test="noticetime != null" >
+        noticetime = #{noticetime,jdbcType=TIMESTAMP},
       </if>
       <if test="adminId != null" >
         admin_id = #{adminId,jdbcType=INTEGER},
@@ -220,7 +220,7 @@
     update tb_notice
     set title = #{title,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
-      time = #{time,jdbcType=TIMESTAMP},
+      noticetime = #{noticetime,jdbcType=TIMESTAMP},
       admin_id = #{adminId,jdbcType=INTEGER},
       reserve1 = #{reserve1,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

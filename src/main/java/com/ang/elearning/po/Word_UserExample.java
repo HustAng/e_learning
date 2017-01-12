@@ -284,63 +284,143 @@ public class Word_UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andMasteredIsNull() {
-            addCriterion("mastered is null");
+        public Criteria andReserve1IsNull() {
+            addCriterion("reserve1 is null");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredIsNotNull() {
-            addCriterion("mastered is not null");
+        public Criteria andReserve1IsNotNull() {
+            addCriterion("reserve1 is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredEqualTo(Integer value) {
-            addCriterion("mastered =", value, "mastered");
+        public Criteria andReserve1EqualTo(String value) {
+            addCriterion("reserve1 =", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredNotEqualTo(Integer value) {
-            addCriterion("mastered <>", value, "mastered");
+        public Criteria andReserve1NotEqualTo(String value) {
+            addCriterion("reserve1 <>", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredGreaterThan(Integer value) {
-            addCriterion("mastered >", value, "mastered");
+        public Criteria andReserve1GreaterThan(String value) {
+            addCriterion("reserve1 >", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredGreaterThanOrEqualTo(Integer value) {
-            addCriterion("mastered >=", value, "mastered");
+        public Criteria andReserve1GreaterThanOrEqualTo(String value) {
+            addCriterion("reserve1 >=", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredLessThan(Integer value) {
-            addCriterion("mastered <", value, "mastered");
+        public Criteria andReserve1LessThan(String value) {
+            addCriterion("reserve1 <", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredLessThanOrEqualTo(Integer value) {
-            addCriterion("mastered <=", value, "mastered");
+        public Criteria andReserve1LessThanOrEqualTo(String value) {
+            addCriterion("reserve1 <=", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredIn(List<Integer> values) {
-            addCriterion("mastered in", values, "mastered");
+        public Criteria andReserve1Like(String value) {
+            addCriterion("reserve1 like", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredNotIn(List<Integer> values) {
-            addCriterion("mastered not in", values, "mastered");
+        public Criteria andReserve1NotLike(String value) {
+            addCriterion("reserve1 not like", value, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredBetween(Integer value1, Integer value2) {
-            addCriterion("mastered between", value1, value2, "mastered");
+        public Criteria andReserve1In(List<String> values) {
+            addCriterion("reserve1 in", values, "reserve1");
             return (Criteria) this;
         }
 
-        public Criteria andMasteredNotBetween(Integer value1, Integer value2) {
-            addCriterion("mastered not between", value1, value2, "mastered");
+        public Criteria andReserve1NotIn(List<String> values) {
+            addCriterion("reserve1 not in", values, "reserve1");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve1Between(String value1, String value2) {
+            addCriterion("reserve1 between", value1, value2, "reserve1");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve1NotBetween(String value1, String value2) {
+            addCriterion("reserve1 not between", value1, value2, "reserve1");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2IsNull() {
+            addCriterion("reserve2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2IsNotNull() {
+            addCriterion("reserve2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2EqualTo(String value) {
+            addCriterion("reserve2 =", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2NotEqualTo(String value) {
+            addCriterion("reserve2 <>", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2GreaterThan(String value) {
+            addCriterion("reserve2 >", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2GreaterThanOrEqualTo(String value) {
+            addCriterion("reserve2 >=", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2LessThan(String value) {
+            addCriterion("reserve2 <", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2LessThanOrEqualTo(String value) {
+            addCriterion("reserve2 <=", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2Like(String value) {
+            addCriterion("reserve2 like", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2NotLike(String value) {
+            addCriterion("reserve2 not like", value, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2In(List<String> values) {
+            addCriterion("reserve2 in", values, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2NotIn(List<String> values) {
+            addCriterion("reserve2 not in", values, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2Between(String value1, String value2) {
+            addCriterion("reserve2 between", value1, value2, "reserve2");
+            return (Criteria) this;
+        }
+
+        public Criteria andReserve2NotBetween(String value1, String value2) {
+            addCriterion("reserve2 not between", value1, value2, "reserve2");
             return (Criteria) this;
         }
     }

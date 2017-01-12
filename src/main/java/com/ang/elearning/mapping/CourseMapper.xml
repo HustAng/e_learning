@@ -11,7 +11,7 @@
     <result column="price" property="price" jdbcType="REAL" />
     <result column="period" property="period" jdbcType="INTEGER" />
     <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
-    <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="detail_id" property="detailId" jdbcType="INTEGER" />
     <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, name, type_id, profile, starttime, endtime, price, period, teacher_id, reserve1, 
+    id, name, type_id, profile, starttime, endtime, price, period, teacher_id, detail_id, 
     reserve2
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.CourseExample" >
@@ -110,11 +110,11 @@
     insert into tb_course (id, name, type_id, 
       profile, starttime, endtime, 
       price, period, teacher_id, 
-      reserve1, reserve2)
+      detail_id, reserve2)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
       #{profile,jdbcType=VARCHAR}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
       #{price,jdbcType=REAL}, #{period,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, 
-      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR})
+      #{detailId,jdbcType=INTEGER}, #{reserve2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ang.elearning.po.Course" >
     insert into tb_course
@@ -146,8 +146,8 @@
       <if test="teacherId != null" >
         teacher_id,
       </if>
-      <if test="reserve1 != null" >
-        reserve1,
+      <if test="detailId != null" >
+        detail_id,
       </if>
       <if test="reserve2 != null" >
         reserve2,
@@ -181,8 +181,8 @@
       <if test="teacherId != null" >
         #{teacherId,jdbcType=INTEGER},
       </if>
-      <if test="reserve1 != null" >
-        #{reserve1,jdbcType=VARCHAR},
+      <if test="detailId != null" >
+        #{detailId,jdbcType=INTEGER},
       </if>
       <if test="reserve2 != null" >
         #{reserve2,jdbcType=VARCHAR},
@@ -225,8 +225,8 @@
       <if test="record.teacherId != null" >
         teacher_id = #{record.teacherId,jdbcType=INTEGER},
       </if>
-      <if test="record.reserve1 != null" >
-        reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      <if test="record.detailId != null" >
+        detail_id = #{record.detailId,jdbcType=INTEGER},
       </if>
       <if test="record.reserve2 != null" >
         reserve2 = #{record.reserve2,jdbcType=VARCHAR},
@@ -247,7 +247,7 @@
       price = #{record.price,jdbcType=REAL},
       period = #{record.period,jdbcType=INTEGER},
       teacher_id = #{record.teacherId,jdbcType=INTEGER},
-      reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      detail_id = #{record.detailId,jdbcType=INTEGER},
       reserve2 = #{record.reserve2,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -280,8 +280,8 @@
       <if test="teacherId != null" >
         teacher_id = #{teacherId,jdbcType=INTEGER},
       </if>
-      <if test="reserve1 != null" >
-        reserve1 = #{reserve1,jdbcType=VARCHAR},
+      <if test="detailId != null" >
+        detail_id = #{detailId,jdbcType=INTEGER},
       </if>
       <if test="reserve2 != null" >
         reserve2 = #{reserve2,jdbcType=VARCHAR},
@@ -299,7 +299,7 @@
       price = #{price,jdbcType=REAL},
       period = #{period,jdbcType=INTEGER},
       teacher_id = #{teacherId,jdbcType=INTEGER},
-      reserve1 = #{reserve1,jdbcType=VARCHAR},
+      detail_id = #{detailId,jdbcType=INTEGER},
       reserve2 = #{reserve2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

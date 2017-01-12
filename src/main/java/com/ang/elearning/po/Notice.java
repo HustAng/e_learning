@@ -9,7 +9,7 @@ public class Notice {
 
     private String content;
 
-    private Date time;
+    private Date noticetime;
 
     private Integer adminId;
 
@@ -39,12 +39,12 @@ public class Notice {
         this.content = content == null ? null : content.trim();
     }
 
-    public Date getTime() {
-        return time;
+    public Date getNoticetime() {
+        return noticetime;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setNoticetime(Date noticetime) {
+        this.noticetime = noticetime;
     }
 
     public Integer getAdminId() {

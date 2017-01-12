@@ -7,7 +7,9 @@ public class Word_User {
 
     private Integer wordId;
 
-    private Integer mastered;
+    private String reserve1;
+
+    private String reserve2;
 
     public Integer getId() {
         return id;
@@ -33,11 +35,19 @@ public class Word_User {
         this.wordId = wordId;
     }
 
-    public Integer getMastered() {
-        return mastered;
+    public String getReserve1() {
+        return reserve1;
     }
 
-    public void setMastered(Integer mastered) {
-        this.mastered = mastered;
+    public void setReserve1(String reserve1) {
+        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    }
+
+    public String getReserve2() {
+        return reserve2;
+    }
+
+    public void setReserve2(String reserve2) {
+        this.reserve2 = reserve2 == null ? null : reserve2.trim();
     }
 }

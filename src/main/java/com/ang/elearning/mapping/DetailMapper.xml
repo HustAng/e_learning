@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ang.elearning.dao.Course_UserMapper" >
-  <resultMap id="BaseResultMap" type="com.ang.elearning.po.Course_User" >
+<mapper namespace="com.ang.elearning.dao.DetailMapper" >
+  <resultMap id="BaseResultMap" type="com.ang.elearning.po.Detail" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="course_id" property="courseId" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="score" property="score" jdbcType="REAL" />
-    <result column="ordertime" property="ordertime" jdbcType="TIMESTAMP" />
-    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,15 +64,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, course_id, user_id, score, ordertime, reserve2
+    id, name
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.Course_UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.DetailExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tb_course_user
+    from tb_detail
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,96 +83,56 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from tb_course_user
+    from tb_detail
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from tb_course_user
+    delete from tb_detail
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ang.elearning.po.Course_UserExample" >
-    delete from tb_course_user
+  <delete id="deleteByExample" parameterType="com.ang.elearning.po.DetailExample" >
+    delete from tb_detail
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ang.elearning.po.Course_User" >
-    insert into tb_course_user (id, course_id, user_id, 
-      score, ordertime, reserve2
-      )
-    values (#{id,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
-      #{score,jdbcType=REAL}, #{ordertime,jdbcType=TIMESTAMP}, #{reserve2,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.ang.elearning.po.Detail" >
+    insert into tb_detail (id, name)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ang.elearning.po.Course_User" >
-    insert into tb_course_user
+  <insert id="insertSelective" parameterType="com.ang.elearning.po.Detail" >
+    insert into tb_detail
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="courseId != null" >
-        course_id,
-      </if>
-      <if test="userId != null" >
-        user_id,
-      </if>
-      <if test="score != null" >
-        score,
-      </if>
-      <if test="ordertime != null" >
-        ordertime,
-      </if>
-      <if test="reserve2 != null" >
-        reserve2,
+      <if test="name != null" >
+        name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="courseId != null" >
-        #{courseId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="score != null" >
-        #{score,jdbcType=REAL},
-      </if>
-      <if test="ordertime != null" >
-        #{ordertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve2 != null" >
-        #{reserve2,jdbcType=VARCHAR},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ang.elearning.po.Course_UserExample" resultType="java.lang.Integer" >
-    select count(*) from tb_course_user
+  <select id="countByExample" parameterType="com.ang.elearning.po.DetailExample" resultType="java.lang.Integer" >
+    select count(*) from tb_detail
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update tb_course_user
+    update tb_detail
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.courseId != null" >
-        course_id = #{record.courseId,jdbcType=INTEGER},
-      </if>
-      <if test="record.userId != null" >
-        user_id = #{record.userId,jdbcType=INTEGER},
-      </if>
-      <if test="record.score != null" >
-        score = #{record.score,jdbcType=REAL},
-      </if>
-      <if test="record.ordertime != null" >
-        ordertime = #{record.ordertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.reserve2 != null" >
-        reserve2 = #{record.reserve2,jdbcType=VARCHAR},
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -184,45 +140,25 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update tb_course_user
+    update tb_detail
     set id = #{record.id,jdbcType=INTEGER},
-      course_id = #{record.courseId,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      score = #{record.score,jdbcType=REAL},
-      ordertime = #{record.ordertime,jdbcType=TIMESTAMP},
-      reserve2 = #{record.reserve2,jdbcType=VARCHAR}
+      name = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ang.elearning.po.Course_User" >
-    update tb_course_user
+  <update id="updateByPrimaryKeySelective" parameterType="com.ang.elearning.po.Detail" >
+    update tb_detail
     <set >
-      <if test="courseId != null" >
-        course_id = #{courseId,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="score != null" >
-        score = #{score,jdbcType=REAL},
-      </if>
-      <if test="ordertime != null" >
-        ordertime = #{ordertime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="reserve2 != null" >
-        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ang.elearning.po.Course_User" >
-    update tb_course_user
-    set course_id = #{courseId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
-      score = #{score,jdbcType=REAL},
-      ordertime = #{ordertime,jdbcType=TIMESTAMP},
-      reserve2 = #{reserve2,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.ang.elearning.po.Detail" >
+    update tb_detail
+    set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

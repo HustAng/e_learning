@@ -305,63 +305,63 @@ public class NoticeExample {
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNull() {
-            addCriterion("time is null");
+        public Criteria andNoticetimeIsNull() {
+            addCriterion("noticetime is null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNotNull() {
-            addCriterion("time is not null");
+        public Criteria andNoticetimeIsNotNull() {
+            addCriterion("noticetime is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeEqualTo(Date value) {
-            addCriterion("time =", value, "time");
+        public Criteria andNoticetimeEqualTo(Date value) {
+            addCriterion("noticetime =", value, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotEqualTo(Date value) {
-            addCriterion("time <>", value, "time");
+        public Criteria andNoticetimeNotEqualTo(Date value) {
+            addCriterion("noticetime <>", value, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThan(Date value) {
-            addCriterion("time >", value, "time");
+        public Criteria andNoticetimeGreaterThan(Date value) {
+            addCriterion("noticetime >", value, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("time >=", value, "time");
+        public Criteria andNoticetimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("noticetime >=", value, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThan(Date value) {
-            addCriterion("time <", value, "time");
+        public Criteria andNoticetimeLessThan(Date value) {
+            addCriterion("noticetime <", value, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThanOrEqualTo(Date value) {
-            addCriterion("time <=", value, "time");
+        public Criteria andNoticetimeLessThanOrEqualTo(Date value) {
+            addCriterion("noticetime <=", value, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIn(List<Date> values) {
-            addCriterion("time in", values, "time");
+        public Criteria andNoticetimeIn(List<Date> values) {
+            addCriterion("noticetime in", values, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotIn(List<Date> values) {
-            addCriterion("time not in", values, "time");
+        public Criteria andNoticetimeNotIn(List<Date> values) {
+            addCriterion("noticetime not in", values, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeBetween(Date value1, Date value2) {
-            addCriterion("time between", value1, value2, "time");
+        public Criteria andNoticetimeBetween(Date value1, Date value2) {
+            addCriterion("noticetime between", value1, value2, "noticetime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotBetween(Date value1, Date value2) {
-            addCriterion("time not between", value1, value2, "time");
+        public Criteria andNoticetimeNotBetween(Date value1, Date value2) {
+            addCriterion("noticetime not between", value1, value2, "noticetime");
             return (Criteria) this;
         }
 

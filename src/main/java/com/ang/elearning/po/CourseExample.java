@@ -692,73 +692,63 @@ public class CourseExample {
             return (Criteria) this;
         }
 
-        public Criteria andReserve1IsNull() {
-            addCriterion("reserve1 is null");
+        public Criteria andDetailIdIsNull() {
+            addCriterion("detail_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1IsNotNull() {
-            addCriterion("reserve1 is not null");
+        public Criteria andDetailIdIsNotNull() {
+            addCriterion("detail_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1EqualTo(String value) {
-            addCriterion("reserve1 =", value, "reserve1");
+        public Criteria andDetailIdEqualTo(Integer value) {
+            addCriterion("detail_id =", value, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1NotEqualTo(String value) {
-            addCriterion("reserve1 <>", value, "reserve1");
+        public Criteria andDetailIdNotEqualTo(Integer value) {
+            addCriterion("detail_id <>", value, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1GreaterThan(String value) {
-            addCriterion("reserve1 >", value, "reserve1");
+        public Criteria andDetailIdGreaterThan(Integer value) {
+            addCriterion("detail_id >", value, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1GreaterThanOrEqualTo(String value) {
-            addCriterion("reserve1 >=", value, "reserve1");
+        public Criteria andDetailIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("detail_id >=", value, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1LessThan(String value) {
-            addCriterion("reserve1 <", value, "reserve1");
+        public Criteria andDetailIdLessThan(Integer value) {
+            addCriterion("detail_id <", value, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1LessThanOrEqualTo(String value) {
-            addCriterion("reserve1 <=", value, "reserve1");
+        public Criteria andDetailIdLessThanOrEqualTo(Integer value) {
+            addCriterion("detail_id <=", value, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1Like(String value) {
-            addCriterion("reserve1 like", value, "reserve1");
+        public Criteria andDetailIdIn(List<Integer> values) {
+            addCriterion("detail_id in", values, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1NotLike(String value) {
-            addCriterion("reserve1 not like", value, "reserve1");
+        public Criteria andDetailIdNotIn(List<Integer> values) {
+            addCriterion("detail_id not in", values, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1In(List<String> values) {
-            addCriterion("reserve1 in", values, "reserve1");
+        public Criteria andDetailIdBetween(Integer value1, Integer value2) {
+            addCriterion("detail_id between", value1, value2, "detailId");
             return (Criteria) this;
         }
 
-        public Criteria andReserve1NotIn(List<String> values) {
-            addCriterion("reserve1 not in", values, "reserve1");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve1Between(String value1, String value2) {
-            addCriterion("reserve1 between", value1, value2, "reserve1");
-            return (Criteria) this;
-        }
-
-        public Criteria andReserve1NotBetween(String value1, String value2) {
-            addCriterion("reserve1 not between", value1, value2, "reserve1");
+        public Criteria andDetailIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("detail_id not between", value1, value2, "detailId");
             return (Criteria) this;
         }
 
