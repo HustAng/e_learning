@@ -6,7 +6,7 @@
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="petname" property="petname" jdbcType="VARCHAR" />
-    <result column="authority" property="authority" jdbcType="INTEGER" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
     <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
   </resultMap>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, petname, authority, reserve1, reserve2
+    id, username, password, petname, role_id, reserve1, reserve2
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.AdminExample" >
     select
@@ -103,10 +103,10 @@
   </delete>
   <insert id="insert" parameterType="com.ang.elearning.po.Admin" >
     insert into tb_admin (id, username, password, 
-      petname, authority, reserve1, 
+      petname, role_id, reserve1, 
       reserve2)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{petname,jdbcType=VARCHAR}, #{authority,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}, 
+      #{petname,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, #{reserve1,jdbcType=VARCHAR}, 
       #{reserve2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ang.elearning.po.Admin" >
@@ -124,8 +124,8 @@
       <if test="petname != null" >
         petname,
       </if>
-      <if test="authority != null" >
-        authority,
+      <if test="roleId != null" >
+        role_id,
       </if>
       <if test="reserve1 != null" >
         reserve1,
@@ -147,8 +147,8 @@
       <if test="petname != null" >
         #{petname,jdbcType=VARCHAR},
       </if>
-      <if test="authority != null" >
-        #{authority,jdbcType=INTEGER},
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
       </if>
       <if test="reserve1 != null" >
         #{reserve1,jdbcType=VARCHAR},
@@ -179,8 +179,8 @@
       <if test="record.petname != null" >
         petname = #{record.petname,jdbcType=VARCHAR},
       </if>
-      <if test="record.authority != null" >
-        authority = #{record.authority,jdbcType=INTEGER},
+      <if test="record.roleId != null" >
+        role_id = #{record.roleId,jdbcType=INTEGER},
       </if>
       <if test="record.reserve1 != null" >
         reserve1 = #{record.reserve1,jdbcType=VARCHAR},
@@ -199,7 +199,7 @@
       username = #{record.username,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       petname = #{record.petname,jdbcType=VARCHAR},
-      authority = #{record.authority,jdbcType=INTEGER},
+      role_id = #{record.roleId,jdbcType=INTEGER},
       reserve1 = #{record.reserve1,jdbcType=VARCHAR},
       reserve2 = #{record.reserve2,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -218,8 +218,8 @@
       <if test="petname != null" >
         petname = #{petname,jdbcType=VARCHAR},
       </if>
-      <if test="authority != null" >
-        authority = #{authority,jdbcType=INTEGER},
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
       </if>
       <if test="reserve1 != null" >
         reserve1 = #{reserve1,jdbcType=VARCHAR},
@@ -235,7 +235,7 @@
     set username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       petname = #{petname,jdbcType=VARCHAR},
-      authority = #{authority,jdbcType=INTEGER},
+      role_id = #{roleId,jdbcType=INTEGER},
       reserve1 = #{reserve1,jdbcType=VARCHAR},
       reserve2 = #{reserve2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

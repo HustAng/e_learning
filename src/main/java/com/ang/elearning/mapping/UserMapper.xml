@@ -7,7 +7,7 @@
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="tel" property="tel" jdbcType="VARCHAR" />
-    <result column="authority" property="authority" jdbcType="INTEGER" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="birth" property="birth" jdbcType="DATE" />
     <result column="balance" property="balance" jdbcType="REAL" />
@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, email, tel, authority, sex, birth, balance, img, backgroud, 
+    id, username, password, email, tel, role_id, sex, birth, balance, img, backgroud, 
     reserve1, reserve2
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.UserExample" >
@@ -110,12 +110,12 @@
   </delete>
   <insert id="insert" parameterType="com.ang.elearning.po.User" >
     insert into tb_user (id, username, password, 
-      email, tel, authority, 
+      email, tel, role_id, 
       sex, birth, balance, img, 
       backgroud, reserve1, reserve2
       )
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{authority,jdbcType=INTEGER}, 
+      #{email,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{roleId,jdbcType=INTEGER}, 
       #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=DATE}, #{balance,jdbcType=REAL}, #{img,jdbcType=VARCHAR}, 
       #{backgroud,jdbcType=VARCHAR}, #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}
       )
@@ -138,8 +138,8 @@
       <if test="tel != null" >
         tel,
       </if>
-      <if test="authority != null" >
-        authority,
+      <if test="roleId != null" >
+        role_id,
       </if>
       <if test="sex != null" >
         sex,
@@ -179,8 +179,8 @@
       <if test="tel != null" >
         #{tel,jdbcType=VARCHAR},
       </if>
-      <if test="authority != null" >
-        #{authority,jdbcType=INTEGER},
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
       </if>
       <if test="sex != null" >
         #{sex,jdbcType=VARCHAR},
@@ -229,8 +229,8 @@
       <if test="record.tel != null" >
         tel = #{record.tel,jdbcType=VARCHAR},
       </if>
-      <if test="record.authority != null" >
-        authority = #{record.authority,jdbcType=INTEGER},
+      <if test="record.roleId != null" >
+        role_id = #{record.roleId,jdbcType=INTEGER},
       </if>
       <if test="record.sex != null" >
         sex = #{record.sex,jdbcType=VARCHAR},
@@ -265,7 +265,7 @@
       password = #{record.password,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
       tel = #{record.tel,jdbcType=VARCHAR},
-      authority = #{record.authority,jdbcType=INTEGER},
+      role_id = #{record.roleId,jdbcType=INTEGER},
       sex = #{record.sex,jdbcType=VARCHAR},
       birth = #{record.birth,jdbcType=DATE},
       balance = #{record.balance,jdbcType=REAL},
@@ -292,8 +292,8 @@
       <if test="tel != null" >
         tel = #{tel,jdbcType=VARCHAR},
       </if>
-      <if test="authority != null" >
-        authority = #{authority,jdbcType=INTEGER},
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
       </if>
       <if test="sex != null" >
         sex = #{sex,jdbcType=VARCHAR},
@@ -325,7 +325,7 @@
       password = #{password,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR},
-      authority = #{authority,jdbcType=INTEGER},
+      role_id = #{roleId,jdbcType=INTEGER},
       sex = #{sex,jdbcType=VARCHAR},
       birth = #{birth,jdbcType=DATE},
       balance = #{balance,jdbcType=REAL},

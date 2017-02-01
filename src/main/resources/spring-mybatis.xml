@@ -89,5 +89,97 @@
 			id="pointcut" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
 	</aop:config>
+
+	<!-- shiro start -->
+	<!-- 1. 配置SecurityManager -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="authenticator" ref="authenticator"></property>
+		<!-- 可以配置多个Realm，其实会把realms属性赋值给ModularRealmAuthenticator的realms属性 -->
+		<property name="realms">
+			<list>
+				<ref bean="userRealm" />
+				<ref bean="adminRealm"/>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 2. 配置CacheManager -->
+	<!-- 2.1 需要加入ehcache的jar包及配置文件 -->
+	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:ehcache.xml" />
+	</bean>
+
+	<!-- 3. 配置Realm -->
+	<!-- 3.1 直接配置继承了 org.apache.shiro.realm.AuthorizingRealm的bean -->
+	<bean id="userRealm" class="com.ang.elearning.shiro.UserRealm">
+		<!-- 配置密码匹配器 -->
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<!-- 加密算法为MD5 -->
+				<property name="hashAlgorithmName" value="MD5"></property>
+				<!-- 加密次数 -->
+				<property name="hashIterations" value="1024"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="adminRealm" class="com.ang.elearning.shiro.AdminRealm">
+		<!-- 配置密码匹配器 -->
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<!-- 加密算法为MD5 -->
+				<property name="hashAlgorithmName" value="MD5"></property>
+				<!-- 加密次数 -->
+				<property name="hashIterations" value="1024"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 4. 配置LifecycleBeanPostProcessor，可以自定义地来调用配置在Spring IOC容器中shiro bean的生命周期方法 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+	<!-- 5. 使能够在IOC容器中使用shiro的注解，但必须在配置了LifecycleBeanPostProcessor之后才可以使用 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor" />
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<!-- 6. 配置ShiroFilter -->
+	<!-- 6.1 id必须和web.xml中配置的DelegatingFilterProxy的<filter-name>一致。 如果不一致，会抛出NoSuchBeanDefinitionException异常，因为shiro会在IOC容器中查找名称和<filter-name> 
+		值一致的filter bean -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login.jsp" />
+		<property name="successUrl" value="/WEB-INF/user/index.jsp" />
+		<property name="unauthorizedUrl" value="/login.jsp" />
+		<!-- 配置哪些页面需要受保护，以及访问这些页面需要的权限 -->
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- 第一次匹配优先的原则 -->
+				/login.jsp = anon
+				/user/login = anon
+				/admin/login = anon
+				
+				/test.jsp = roles[admin]
+
+				/logout = logout
+
+				/** = authc
+			</value>
+		</property>
+	</bean>
+
+	<!-- 7. 配置使用自定义认证器，可以实现多Realm认证，并且可以指定特定Realm处理特定类型的验证 -->
+	<bean id="authenticator" class="com.ang.elearning.shiro.CustomizedModularRealmAuthenticator">
+		<!-- 配置认证策略，只要有一个Realm认证成功即可，并且返回所有认证成功信息 -->
+		<property name="authenticationStrategy">
+			<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"></bean>
+		</property>
+	</bean>
+	<!-- shiro end -->
 </beans>
 

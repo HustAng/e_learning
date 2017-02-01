@@ -374,63 +374,63 @@ public class AdminExample {
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityIsNull() {
-            addCriterion("authority is null");
+        public Criteria andRoleIdIsNull() {
+            addCriterion("role_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityIsNotNull() {
-            addCriterion("authority is not null");
+        public Criteria andRoleIdIsNotNull() {
+            addCriterion("role_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityEqualTo(Integer value) {
-            addCriterion("authority =", value, "authority");
+        public Criteria andRoleIdEqualTo(Integer value) {
+            addCriterion("role_id =", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityNotEqualTo(Integer value) {
-            addCriterion("authority <>", value, "authority");
+        public Criteria andRoleIdNotEqualTo(Integer value) {
+            addCriterion("role_id <>", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityGreaterThan(Integer value) {
-            addCriterion("authority >", value, "authority");
+        public Criteria andRoleIdGreaterThan(Integer value) {
+            addCriterion("role_id >", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityGreaterThanOrEqualTo(Integer value) {
-            addCriterion("authority >=", value, "authority");
+        public Criteria andRoleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("role_id >=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityLessThan(Integer value) {
-            addCriterion("authority <", value, "authority");
+        public Criteria andRoleIdLessThan(Integer value) {
+            addCriterion("role_id <", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityLessThanOrEqualTo(Integer value) {
-            addCriterion("authority <=", value, "authority");
+        public Criteria andRoleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("role_id <=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityIn(List<Integer> values) {
-            addCriterion("authority in", values, "authority");
+        public Criteria andRoleIdIn(List<Integer> values) {
+            addCriterion("role_id in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityNotIn(List<Integer> values) {
-            addCriterion("authority not in", values, "authority");
+        public Criteria andRoleIdNotIn(List<Integer> values) {
+            addCriterion("role_id not in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityBetween(Integer value1, Integer value2) {
-            addCriterion("authority between", value1, value2, "authority");
+        public Criteria andRoleIdBetween(Integer value1, Integer value2) {
+            addCriterion("role_id between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthorityNotBetween(Integer value1, Integer value2) {
-            addCriterion("authority not between", value1, value2, "authority");
+        public Criteria andRoleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("role_id not between", value1, value2, "roleId");
             return (Criteria) this;
         }
 

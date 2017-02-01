@@ -57,4 +57,28 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<!-- Shiro Filter is defined in the spring application context: -->
+	<!-- 1. 配置shiro的shiroFilter -->
+	<!-- 2. DelegatingFilterProxy实际上是Filter的一个代理对象，默认情况下spring会到IOC容器中查找和<filter-name>对应的filter 
+		bean，也可以通过targetBeanName的初始化参数来配置filter bean的id -->
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<!-- 
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>targetBeanName</param-value>
+		</init-param>
+		 -->
+	</filter>
+
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app>

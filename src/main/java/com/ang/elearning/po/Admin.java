@@ -9,7 +9,7 @@ public class Admin {
 
     private String petname;
 
-    private Integer authority;
+    private Integer roleId;
 
     private String reserve1;
 
@@ -47,12 +47,12 @@ public class Admin {
         this.petname = petname == null ? null : petname.trim();
     }
 
-    public Integer getAuthority() {
-        return authority;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setAuthority(Integer authority) {
-        this.authority = authority;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public String getReserve1() {

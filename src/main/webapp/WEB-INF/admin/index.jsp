@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>测试页面</title>
+<title>Admin Index Page</title>
 </head>
 <body>
-<h4>Test Successfully!</h4>
-User: ${requestScope.user.username }
+<h4>Login Successfully!</h4>
+<br>
+<a href="${pageContext.request.contextPath }/logout">Logout</a>
 </body>
 </html>

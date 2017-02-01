@@ -13,7 +13,7 @@ public class User {
 
     private String tel;
 
-    private Integer authority;
+    private Integer roleId;
 
     private String sex;
 
@@ -69,12 +69,12 @@ public class User {
         this.tel = tel == null ? null : tel.trim();
     }
 
-    public Integer getAuthority() {
-        return authority;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setAuthority(Integer authority) {
-        this.authority = authority;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public String getSex() {

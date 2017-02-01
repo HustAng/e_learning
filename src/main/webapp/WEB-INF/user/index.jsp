@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>User Index Page</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath }/user/getUserById/1">TEST GET USER BY ID</a>
+<h4>Login Successfully!</h4>
+<br>
+<a href="${pageContext.request.contextPath }/test.jsp">TEST PAGE</a>
+<br>
+<a href="${pageContext.request.contextPath }/logout">Logout</a>
 </body>
 </html>
