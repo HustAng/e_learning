@@ -8,7 +8,9 @@
 </head>
 <body>
 <h4>Login Successfully!</h4>
-<br>
+<br><br>
+<a href="${pageContext.request.contextPath }/test.jsp">TEST PAGE</a>
+<br><br>
 <a href="${pageContext.request.contextPath }/logout">Logout</a>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.ang.elearning.controller;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.apache.shiro.SecurityUtils;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ang.elearning.service.IUserService;
@@ -43,20 +46,25 @@ public class UserController {
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password) {
 		Subject currentUser = SecurityUtils.getSubject();
 		if (!currentUser.isAuthenticated()) {
+			// 指明登录类型为普通用户登录(在授权时使用)
+			currentUser.getSession().setAttribute("loginType", USER_LOGIN_TYPE);
 			CustomizedToken customizedToken = new CustomizedToken(email, password, USER_LOGIN_TYPE);
+			//暂时指定为false，方便测试
 			customizedToken.setRememberMe(false);
 			try {
 				currentUser.login(customizedToken);
 				return "user/index";
 			} catch (IncorrectCredentialsException ice) {
-				System.out.println("邮箱/密码不匹配！");
+				System.out.println("登陆失败：邮箱/密码不匹配！");
 			} catch (LockedAccountException lae) {
-				System.out.println("账户已被冻结！");
+				System.out.println("登陆失败：账户已被冻结！");
 			} catch (AuthenticationException ae) {
 				System.out.println(ae.getMessage());
 			}
+			return "redirect:/login.jsp";
+		} else {
+			return "user/index";
 		}
-		return "redirect:/login.jsp";
 	}
 
 }

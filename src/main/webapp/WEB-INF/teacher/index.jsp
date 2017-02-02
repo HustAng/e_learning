@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>TEST PAGE</title>
+<title>TEACHER PAGE</title>
 </head>
 <body>
-<h4>Test Page</h4>
+<h4>Login Successfully!</h4>
+<br><br>
+<a href="${pageContext.request.contextPath }/test.jsp">TEST PAGE</a>
+<br><br>
+<a href="${pageContext.request.contextPath }/logout">Logout</a>
 </body>
 </html>

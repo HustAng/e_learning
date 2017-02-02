@@ -100,6 +100,7 @@
 			<list>
 				<ref bean="userRealm" />
 				<ref bean="adminRealm"/>
+				<ref bean="teacherRealm"/>
 			</list>
 		</property>
 	</bean>
@@ -135,6 +136,18 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="teacherRealm" class="com.ang.elearning.shiro.TeacherRealm">
+		<!-- 配置密码匹配器 -->
+		<property name="credentialsMatcher">
+			<bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+				<!-- 加密算法为MD5 -->
+				<property name="hashAlgorithmName" value="MD5"></property>
+				<!-- 加密次数 -->
+				<property name="hashIterations" value="1024"></property>
+			</bean>
+		</property>
+	</bean>
 
 	<!-- 4. 配置LifecycleBeanPostProcessor，可以自定义地来调用配置在Spring IOC容器中shiro bean的生命周期方法 -->
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
@@ -154,7 +167,6 @@
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/login.jsp" />
-		<property name="successUrl" value="/WEB-INF/user/index.jsp" />
 		<property name="unauthorizedUrl" value="/login.jsp" />
 		<!-- 配置哪些页面需要受保护，以及访问这些页面需要的权限 -->
 		<property name="filterChainDefinitions">
@@ -163,7 +175,9 @@
 				/login.jsp = anon
 				/user/login = anon
 				/admin/login = anon
+				/teacher/login = anon
 				
+				<!-- 测试：只有admin角色可以访问test.jsp -->
 				/test.jsp = roles[admin]
 
 				/logout = logout
@@ -173,7 +187,7 @@
 		</property>
 	</bean>
 
-	<!-- 7. 配置使用自定义认证器，可以实现多Realm认证，并且可以指定特定Realm处理特定类型的验证 -->
+	<!-- 7. 配置使用自定义认证器，可以实现多Realm认证，并且可以根据登录类型指定使用特定的Realm -->
 	<bean id="authenticator" class="com.ang.elearning.shiro.CustomizedModularRealmAuthenticator">
 		<!-- 配置认证策略，只要有一个Realm认证成功即可，并且返回所有认证成功信息 -->
 		<property name="authenticationStrategy">

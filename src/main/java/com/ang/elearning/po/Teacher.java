@@ -21,7 +21,7 @@ public class Teacher {
 
     private String background;
 
-    private String reserve1;
+    private Integer roleId;
 
     private String reserve2;
 
@@ -97,12 +97,12 @@ public class Teacher {
         this.background = background == null ? null : background.trim();
     }
 
-    public String getReserve1() {
-        return reserve1;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setReserve1(String reserve1) {
-        this.reserve1 = reserve1 == null ? null : reserve1.trim();
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public String getReserve2() {

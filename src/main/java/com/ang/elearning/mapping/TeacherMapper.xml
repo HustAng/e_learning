@@ -11,7 +11,7 @@
     <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="birth" property="birth" jdbcType="DATE" />
     <result column="background" property="background" jdbcType="VARCHAR" />
-    <result column="reserve1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, email, profile, img, sex, birth, background, reserve1, reserve2
+    id, username, password, email, profile, img, sex, birth, background, role_id, reserve2
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.TeacherExample" >
     select
@@ -109,11 +109,11 @@
     insert into tb_teacher (id, username, password, 
       email, profile, img, 
       sex, birth, background, 
-      reserve1, reserve2)
+      role_id, reserve2)
     values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{profile,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, 
       #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=DATE}, #{background,jdbcType=VARCHAR}, 
-      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR})
+      #{roleId,jdbcType=INTEGER}, #{reserve2,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ang.elearning.po.Teacher" >
     insert into tb_teacher
@@ -145,8 +145,8 @@
       <if test="background != null" >
         background,
       </if>
-      <if test="reserve1 != null" >
-        reserve1,
+      <if test="roleId != null" >
+        role_id,
       </if>
       <if test="reserve2 != null" >
         reserve2,
@@ -180,8 +180,8 @@
       <if test="background != null" >
         #{background,jdbcType=VARCHAR},
       </if>
-      <if test="reserve1 != null" >
-        #{reserve1,jdbcType=VARCHAR},
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
       </if>
       <if test="reserve2 != null" >
         #{reserve2,jdbcType=VARCHAR},
@@ -224,8 +224,8 @@
       <if test="record.background != null" >
         background = #{record.background,jdbcType=VARCHAR},
       </if>
-      <if test="record.reserve1 != null" >
-        reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      <if test="record.roleId != null" >
+        role_id = #{record.roleId,jdbcType=INTEGER},
       </if>
       <if test="record.reserve2 != null" >
         reserve2 = #{record.reserve2,jdbcType=VARCHAR},
@@ -246,7 +246,7 @@
       sex = #{record.sex,jdbcType=VARCHAR},
       birth = #{record.birth,jdbcType=DATE},
       background = #{record.background,jdbcType=VARCHAR},
-      reserve1 = #{record.reserve1,jdbcType=VARCHAR},
+      role_id = #{record.roleId,jdbcType=INTEGER},
       reserve2 = #{record.reserve2,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -279,8 +279,8 @@
       <if test="background != null" >
         background = #{background,jdbcType=VARCHAR},
       </if>
-      <if test="reserve1 != null" >
-        reserve1 = #{reserve1,jdbcType=VARCHAR},
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
       </if>
       <if test="reserve2 != null" >
         reserve2 = #{reserve2,jdbcType=VARCHAR},
@@ -298,7 +298,7 @@
       sex = #{sex,jdbcType=VARCHAR},
       birth = #{birth,jdbcType=DATE},
       background = #{background,jdbcType=VARCHAR},
-      reserve1 = #{reserve1,jdbcType=VARCHAR},
+      role_id = #{roleId,jdbcType=INTEGER},
       reserve2 = #{reserve2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
