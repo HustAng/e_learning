@@ -1,6 +1,5 @@
 package com.ang.elearning.serviceTest;
 
-import static org.junit.Assert.*;
 
 import org.apache.shiro.crypto.hash.SimpleHash;
 

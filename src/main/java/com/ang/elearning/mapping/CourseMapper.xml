@@ -303,4 +303,5 @@
       reserve2 = #{reserve2,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
 </mapper>
