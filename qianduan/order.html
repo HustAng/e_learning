@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>确认订单</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"/>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+ <script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});
+	</script>
+<!---End-smoth-scrolling---->
+</head>
+
+<body >
+	<div class="t">
+		<div class="t_n">
+			<div class="r_nr"><a href="#">我的学习</a>&nbsp;<a href="#">消息<em id="msg_num">2</em></a>&nbsp;<a href="#">购物车<em id="buy_num">1</em></a>&nbsp;<a href="#">登录/注册</a></div>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="incredible">
+			<div class="container">
+					<div class="order_remind"><span class="fui-info-circle"></span>请仔细确认订单详情，注意课程有效时间，合理安排学习时间</div>
+					<div>
+						<form>
+							<table class="table" contenteditable="true">
+								<thead>
+									<tr>
+									<th>课程名称</th>
+									<th>课程有效期</th>
+									<th>单价（元）</th>
+									<th>优惠（元）</th>
+									<th>小计（元）</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><img src="images/free1.jpg"/>宝宝启蒙英语</td>
+										<td>付款后两年内有效</td>
+										<td>239.00</td>
+										<td>40</td>
+										<td>199.00</td>
+									</tr>
+									<tr class="final_p" >
+										<td colspan="4"></td>
+										<td >小计：<span id="final_price">199.00</span></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="total_p">
+								<p>总计：</p><p>￥199.00</p>
+							</div>
+							<div class="pay">
+								<div class="suborder"><button class="btn btn-warning btn-large" type="button">提交订单</button></div>
+								<div class="real_pay"><p>实付金额：</p><span>￥199.00</span><a href="cart.html">返回购物车修改</a></div>
+								<div class="clearfix"></div>
+							</div>
+						</form>
+					</div>
+			</div>
+		</div>
+		<!--specials-->
+		<div class="specials-section">
+			<div class="container">
+				<div class="specials-grids">
+					<div class="col-md-3 specials1">
+						<h3>categories</h3>
+						<ul>
+							<li><a href="#">Lorem ipsum dolor</a></li>
+							<li><a href="#">Consectetur adipiscing</a></li>
+							<li><a href="#">Integer molestie lorem</a></li>
+							<li><a href="#">Facilisis in pretium nisl</a></li>
+							<li><a href="#">Pacilisis in pretium nisl</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 specials1">
+						<h3>archives</h3>
+						<ul>
+							<li><a href="#">September, 2013</a></li>
+							<li><a href="#">August, 2013</a></li>
+							<li><a href="#">July, 2013</a></li>
+							<li><a href="#">June, 2013</a></li>
+							<li><a href="#">May, 2013</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 specials1">
+						<h3>contact</h3>
+						<address>
+							<p>The Company Name Inc.</p>
+							<p>Glasgow,Le 99 Pr 45.</p>
+							<p>Telephone: +1 800 603 6035</p>
+							<p>FAX: +1 800 889 9898</p>
+							<p>E-mail: <a href="mailto:example@mail.com">example@mail.com</a></p>
+						</address>
+					</div>
+					<div class="col-md-3 specials1">
+						<h3>social</h3>
+						<ul>
+							<li><a href="#">facebook</a></li>
+							<li><a href="#">twitter</a></li>
+							<li><a href="#">google</a></li>
+							<li><a href="#">Vimeo</a></li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	<div class="footer-section">
+		<div class="container">
+			<div class="footer-top">
+				<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			</div>
+			<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>
+			<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		</div>
+	</div>
+</body>
+
+</html>

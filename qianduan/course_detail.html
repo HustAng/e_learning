@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>课程详情</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"/>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+ <script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});
+	</script>
+<!---End-smoth-scrolling---->
+</head>
+
+<body class="bcg">
+	<div class="t">
+		<div class="t_n">
+			<div class="r_nr"><a href="#">我的学习</a>&nbsp;<a href="#">消息<em id="msg_num">2</em></a>&nbsp;<a href="#">购物车<em id="buy_num">1</em></a>&nbsp;<a href="#">登录/注册</a></div>
+		</div>
+	</div>
+	<div class="header" style="height: 80px">
+		<div class="container">
+			<div class="header-top">
+				<div class="logo">
+					ANG English
+				</div>
+				<div class="top-menu">
+					<span class="menu"><img src="images/nav.png" alt=""/> </span>
+					<ul>
+						<li><a href="index.html" class="active">主页</a></li>
+						<li><a href="course.html">课程</a></li>
+						<li><a href="word.html">单词</a></li>
+						<li><a href="about.html">关于</a></li>
+						<li><a href="service.html">服务</a></li>
+						<li><a href="contact.html">联系</a></li>
+					</ul>
+				</div>
+				<div class="search">
+					<div class="b-search">
+						<form>
+							<input type="text" value="课程搜索" onfocus="this.value = ''" onblur="if (this.value == '') {this.value = 'Search here';}">
+							<input type="submit" value="">
+						</form>
+					</div>
+				</div>
+				<!--script-nav-->
+				 <script>
+						 $("span.menu").click(function(){
+						 $(".top-menu ul").slideToggle("slow" , function(){
+						 });
+						 });
+						 </script>
+					<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!--services-->
+	<div class="content">
+		<div class="incredible">
+				<div class="container">
+					<div >
+						<ul class="breadcrumb" contenteditable="true">
+							<li>​<a href="index.html">主页</a></li>
+							<li><a href="course.html">课程</a></li>
+							<li><a class="active" href="this">生活英语</a></li>
+						</ul>
+					</div>
+					<div class="course_detail">
+						<div class="container-fluid">
+							<div class="course_intro">
+								<div class="intro_left">
+									<h3>宝宝启蒙英语</h3>
+									<div class="course_img"><a href="#"><img  src="images/free1.jpg" /></a></div>									
+								</div>
+								<div class="intro_right">
+									
+										<div class="price">
+											<h3>
+												<strong>￥199.00</strong><s>￥239.00</s><span>8.3折</span>
+											</h3>
+										</div>
+										<div class="intro_info">
+											<ul>
+												<li class="first_li">
+													<i class="fa fa-user"></i>&nbsp;参加人数：
+												</li>
+												<li id="join_num">
+													1200
+												</li>
+												<li>
+													讲师：
+												</li>
+												<li id="teacher">
+													God Tang
+												</li>
+											</ul>
+										</div>
+										<div>
+												<div class="buy_now">
+													<a href="order.html"><button class="btn btn-danger btn-large" type="button">立即参加</button></a>
+												</div>
+												<div class="s_cart">
+													<button class="btn btn-warning btn-large" type="button">加入购物车</button>
+												</div>
+												
+										</div>
+											<div class="clearfix"></div>		
+								</div>
+								<div class="clearfix"></div>	
+							</div>
+							<div class="intro_detail">
+								<div class="intro_dis">
+									<div class="tabbable" id="tabs-942631"><!-- Only required for left/right tabs -->
+										<ul class="nav nav-tabs">
+											<li class="active"><a  data-toggle="tab" href="#panel-904948">简介</a></li>
+											<li class=""><a  data-toggle="tab" href="#panel-392684">讨论区</a></li>
+										</ul>
+
+										<div class="tab-content">
+											<div class="tab-pane active" contenteditable="true" id="panel-904948">
+											<p id="course_brief">简介内容。。。。后台读取填充</p>
+											</div>
+
+											<div class="tab-pane" contenteditable="true" id="panel-392684">
+											<p id="discuss">讨论区。。。后台读取填充</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		<!--specials-->
+		<div class="specials-section">
+			<div class="container">
+				<div class="specials-grids">
+					<div class="col-md-3 specials1">
+						<h3>categories</h3>
+						<ul>
+							<li><a href="#">Lorem ipsum dolor</a></li>
+							<li><a href="#">Consectetur adipiscing</a></li>
+							<li><a href="#">Integer molestie lorem</a></li>
+							<li><a href="#">Facilisis in pretium nisl</a></li>
+							<li><a href="#">Pacilisis in pretium nisl</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 specials1">
+						<h3>archives</h3>
+						<ul>
+							<li><a href="#">September, 2013</a></li>
+							<li><a href="#">August, 2013</a></li>
+							<li><a href="#">July, 2013</a></li>
+							<li><a href="#">June, 2013</a></li>
+							<li><a href="#">May, 2013</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 specials1">
+						<h3>contact</h3>
+						<address>
+							<p>The Company Name Inc.</p>
+							<p>Glasgow,Le 99 Pr 45.</p>
+							<p>Telephone: +1 800 603 6035</p>
+							<p>FAX: +1 800 889 9898</p>
+							<p>E-mail: <a href="mailto:example@mail.com">example@mail.com</a></p>
+						</address>
+					</div>
+					<div class="col-md-3 specials1">
+						<h3>social</h3>
+						<ul>
+							<li><a href="#">facebook</a></li>
+							<li><a href="#">twitter</a></li>
+							<li><a href="#">google</a></li>
+							<li><a href="#">Vimeo</a></li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	<div class="footer-section">
+		<div class="container">
+			<div class="footer-top">
+				<p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			</div>
+			<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>
+			<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		</div>
+	</div>
+</body>
+
+</html>
