@@ -29,6 +29,10 @@ h1,h2,h3,h4,h5,h6{
 	padding:0 0;
 	margin:0 0;
 }
+h4 a:hover{
+    text-decoration: none;
+    color: #00990d;
+}
 p{
 	padding:0 0;
 	margin:0 0;
@@ -37,6 +41,11 @@ span{
     font-family: 'Arial';
     font-size: 20px;
     color: #ff0000;
+}
+.e_course p .normal{
+    color: #777;
+    font-family: "微软雅黑";
+    font-size: 1.1em;
 }
 ul{
 	padding:0 0;
@@ -534,6 +543,9 @@ a.button:hover {
 .services-grids {
   margin-top: 3em;
 }
+.services-grids a{
+    text-decoration: none;
+}
 .ser1 {
   background:#05a581;
   padding: 2em;
@@ -839,7 +851,7 @@ h3.tittle {
   -moz-transition: 0.5s all;
   -ms-transition: 0.5s all;
 }
-/**course_detail*/
+/**course_intro*/
 .breadcrumb li a{
     text-decoration: none;
 }
@@ -883,10 +895,14 @@ h3.tittle {
     width: 300px;
     height: 50px;
 }
+.title{
+     width: 300px;
+    height: 50px;
+}
 .price h3{
     color: red;
 }
-.price s{
+.price del{
     margin-left: 20px;
     color:#808080;
     font-size: 14px;
@@ -907,6 +923,16 @@ h3.tittle {
     float: left;
     padding-left: 30px;
     display: inline-block;
+}
+.course_score{
+     width: 400px;
+     margin-top:-100px;
+}
+.course_score ul li{
+    display: inline-block;
+}
+.course_score .fa-star{
+    color: #00990d;
 }
 #join_num{
     padding-left: 0px;
@@ -1248,6 +1274,105 @@ h3.tittle {
 .video_content{
     height: 500px;
     padding: 0px 50px;
+}
+/** course_detail*/
+.tab-content{
+    width:700px;
+    float: left;
+}
+.makescore{
+    width:300px;
+    float: left;
+}
+.progress{
+    background-color:#c0c0c0;
+    float:left;
+    width:70%;
+}
+.keep_learn{
+    float:left;
+    margin-left:20px;
+    margin-top: -10px;
+}
+.pro_info{
+    margin:30px;
+}
+.cg_detail{
+     margin:40px 0px;
+    height: 800px;
+}
+.cg_detail .all_discuss{
+    width: 600px;
+    margin-top: 30px;
+    height:1000px;
+    overflow: 0;
+}
+.cg_detail .solo_discuss{
+    height: 150px;
+}
+.score_top{
+    margin: 10px 10px;
+}
+.makescore{
+    padding: 20px 0px;
+}
+.makescore li{
+    list-style: none;
+    display: inline-block;
+}
+.makescore p{
+    display: inline;
+    margin-left: 10px;
+}
+.rating {
+    
+    display: inline;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+.makescore li:hover{
+    color: #00990d;
+}
+.chapter{
+    font-style: normal;
+    color: #fff;
+    font-size:16px;
+    padding:5px 12px;
+    background-color:#777;
+    border-radius:20px;
+    margin-left: 10px;
+}
+.cg_chapter{
+    margin: 30px;
+}
+.cg_chapter span{
+    color: #777;
+    font-size: 1.2em;
+
+}
+
+.cg_chapter ul li{
+
+    font-family: "微软雅黑";
+    list-style: none;
+    margin:20px 0px;
+}
+.cg_chapter ul ul li{
+    font-size: 1.2em;
+    margin: 10px 50px;
+}
+.cg_chapter ul ul li i{
+    margin: 0px 20px;
 }
 /**Responsive*/
 @media (max-width:1440px){
