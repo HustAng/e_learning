@@ -13,4 +13,6 @@ public interface ICourseService {
 	public void add(Course course);
 	//根绝Id修改课程信息
 	public void updateById(Course course);
+	//根据Id删除课程
+	public void deleteCourse(int id);
 }

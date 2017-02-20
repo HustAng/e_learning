@@ -45,6 +45,11 @@ public class CourseServiceImpl implements ICourseService {
 	public void updateById(Course course) {
 		courseDao.updateByPrimaryKeySelective(course);
 	}
+	@Override
+	public void deleteCourse(int id) {
+		courseDao.deleteByPrimaryKey(id);
+		
+	}
 	
 
 }

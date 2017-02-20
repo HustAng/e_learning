@@ -50,7 +50,7 @@ public class CourseController {
 		return modelAndView;
 	}
 	@RequestMapping(value="/BeforAddCourse",method=RequestMethod.GET)
-	public ModelAndView BeforeAddCourse()
+	public ModelAndView BeforeAddCourse(HttpServletRequest request)
 	{
 		ModelAndView modelAndView=new ModelAndView("Course/AddCourse");
 		List<Teacher> teacherList=teacherService.getAllTeacher();
@@ -59,15 +59,19 @@ public class CourseController {
 		modelAndView.addObject("detailList",detailList);
 		List<Type> typeList=typeService.getAllType();
 		modelAndView.addObject("typeList",typeList);
+		request.getSession().setAttribute("teacherListSession",teacherList);
+		request.getSession().setAttribute("detailListSession",detailList);
+		request.getSession().setAttribute("typeListSession",typeList);
 		return modelAndView;
 	}
 	@RequestMapping(value="/AddCourse")
 	public ModelAndView AddCourse(@RequestParam("pic") CommonsMultipartFile pic,HttpServletRequest request)
 	{
+		String url=null;
 		if(!pic.isEmpty())
 		{
 			try{
-				String url=System.getProperty("root")+"/WEB-INF/upload/"+UUID.randomUUID().toString();
+				url=System.getProperty("root")+"/WEB-INF/upload/"+UUID.randomUUID().toString();
 				new File(url).mkdirs();
 				pic.transferTo(new File(url+"/"+pic.getOriginalFilename()));
 			} catch (Exception e) {
@@ -77,6 +81,7 @@ public class CourseController {
 		}
 		DateFormat format=new SimpleDateFormat("yyyy-mm-dd");
 		Course course=new Course();
+		course.setImg(url+"/"+pic.getOriginalFilename());
 		course.setName(request.getParameter("name"));
 		course.setProfile(request.getParameter("profile"));
 		course.setTypeId(Integer.valueOf(request.getParameter("typeId")));
@@ -95,6 +100,37 @@ public class CourseController {
 		ModelAndView modelAndView=new ModelAndView("redirect:/course/BeforAddCourse");
 		return modelAndView;
 		
+	}
+	@RequestMapping(value="/UpdateCourse")
+	public ModelAndView updateCourse(HttpServletRequest request)
+	{
+		DateFormat format=new SimpleDateFormat("yyyy-mm-dd");
+		Course course=new Course();
+		course.setId(Integer.valueOf(request.getParameter("id")));
+		course.setName(request.getParameter("name"));
+		course.setProfile(request.getParameter("profile"));
+		course.setTypeId(Integer.valueOf(request.getParameter("typeId")));
+		try {
+			course.setStarttime(format.parse(request.getParameter("starttime")));
+			course.setEndtime(format.parse(request.getParameter("endttime")));
+		} catch (ParseException e) {
+			System.out.println("时间转换出错");
+			e.printStackTrace();
+		}
+		course.setPrice(Float.valueOf(request.getParameter("price")));
+		course.setPeriod(Integer.valueOf(request.getParameter("period")));
+		course.setTeacherId(Integer.valueOf(request.getParameter("teacherId")));
+		course.setDetailId(Integer.valueOf(request.getParameter("detailId")));
+		courseService.updateById(course);
+		ModelAndView modelAndView=new ModelAndView("redirect:/course/BeforAddCourse");
+		return modelAndView;
+	}
+	@RequestMapping("deleteCourse")
+	public ModelAndView deleteCourseById(@RequestParam("Id") int id)
+	{
+		courseService.deleteCourse(id);
+		ModelAndView modelAndView=new ModelAndView("redirect:/course/BeforAddCourse");
+		return modelAndView;
 	}
 	
 

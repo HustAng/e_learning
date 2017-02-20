@@ -4,6 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+	function deleteCourse(id){
+		var url="../deleteCourse?Id="+id;
+		window.location.href=url;
+	}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>课程列表</title>
 </head>
@@ -24,8 +30,8 @@
 			<li>${course.endtime }</li>
 			<li>${course.price }</li>
 			<li>${course.period }</li>
-			<li><a href="">修改课程信息</a></li>
-			<li><a href="">删除课程</a></li>
+			<li><a href="javascript:void(0)" onclick="update()">修改课程信息</a></li>
+			<li><a href="javascript:void(0)" onclick="deleteCourse('${course.id}')">删除课程</a></li>
 		</ul>
 	</c:forEach>
 </body>
