@@ -752,73 +752,73 @@ public class CourseExample {
             return (Criteria) this;
         }
 
-        public Criteria andReserve2IsNull() {
-            addCriterion("reserve2 is null");
+        public Criteria andImgIsNull() {
+            addCriterion("img is null");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2IsNotNull() {
-            addCriterion("reserve2 is not null");
+        public Criteria andImgIsNotNull() {
+            addCriterion("img is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2EqualTo(String value) {
-            addCriterion("reserve2 =", value, "reserve2");
+        public Criteria andImgEqualTo(String value) {
+            addCriterion("img =", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2NotEqualTo(String value) {
-            addCriterion("reserve2 <>", value, "reserve2");
+        public Criteria andImgNotEqualTo(String value) {
+            addCriterion("img <>", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2GreaterThan(String value) {
-            addCriterion("reserve2 >", value, "reserve2");
+        public Criteria andImgGreaterThan(String value) {
+            addCriterion("img >", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2GreaterThanOrEqualTo(String value) {
-            addCriterion("reserve2 >=", value, "reserve2");
+        public Criteria andImgGreaterThanOrEqualTo(String value) {
+            addCriterion("img >=", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2LessThan(String value) {
-            addCriterion("reserve2 <", value, "reserve2");
+        public Criteria andImgLessThan(String value) {
+            addCriterion("img <", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2LessThanOrEqualTo(String value) {
-            addCriterion("reserve2 <=", value, "reserve2");
+        public Criteria andImgLessThanOrEqualTo(String value) {
+            addCriterion("img <=", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2Like(String value) {
-            addCriterion("reserve2 like", value, "reserve2");
+        public Criteria andImgLike(String value) {
+            addCriterion("img like", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2NotLike(String value) {
-            addCriterion("reserve2 not like", value, "reserve2");
+        public Criteria andImgNotLike(String value) {
+            addCriterion("img not like", value, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2In(List<String> values) {
-            addCriterion("reserve2 in", values, "reserve2");
+        public Criteria andImgIn(List<String> values) {
+            addCriterion("img in", values, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2NotIn(List<String> values) {
-            addCriterion("reserve2 not in", values, "reserve2");
+        public Criteria andImgNotIn(List<String> values) {
+            addCriterion("img not in", values, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2Between(String value1, String value2) {
-            addCriterion("reserve2 between", value1, value2, "reserve2");
+        public Criteria andImgBetween(String value1, String value2) {
+            addCriterion("img between", value1, value2, "img");
             return (Criteria) this;
         }
 
-        public Criteria andReserve2NotBetween(String value1, String value2) {
-            addCriterion("reserve2 not between", value1, value2, "reserve2");
+        public Criteria andImgNotBetween(String value1, String value2) {
+            addCriterion("img not between", value1, value2, "img");
             return (Criteria) this;
         }
     }

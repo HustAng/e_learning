@@ -23,7 +23,7 @@ public class Course {
 
     private Integer detailId;
 
-    private String reserve2;
+    private String img;
 
     public Integer getId() {
         return id;
@@ -105,11 +105,11 @@ public class Course {
         this.detailId = detailId;
     }
 
-    public String getReserve2() {
-        return reserve2;
+    public String getImg() {
+        return img;
     }
 
-    public void setReserve2(String reserve2) {
-        this.reserve2 = reserve2 == null ? null : reserve2.trim();
+    public void setImg(String img) {
+        this.img = img == null ? null : img.trim();
     }
 }

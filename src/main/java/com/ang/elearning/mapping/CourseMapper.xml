@@ -12,7 +12,7 @@
     <result column="period" property="period" jdbcType="INTEGER" />
     <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
     <result column="detail_id" property="detailId" jdbcType="INTEGER" />
-    <result column="reserve2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, name, type_id, profile, starttime, endtime, price, period, teacher_id, detail_id, 
-    reserve2
+    img
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ang.elearning.po.CourseExample" >
     select
@@ -110,11 +110,11 @@
     insert into tb_course (id, name, type_id, 
       profile, starttime, endtime, 
       price, period, teacher_id, 
-      detail_id, reserve2)
+      detail_id, img)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
       #{profile,jdbcType=VARCHAR}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
       #{price,jdbcType=REAL}, #{period,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER}, 
-      #{detailId,jdbcType=INTEGER}, #{reserve2,jdbcType=VARCHAR})
+      #{detailId,jdbcType=INTEGER}, #{img,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ang.elearning.po.Course" >
     insert into tb_course
@@ -149,8 +149,8 @@
       <if test="detailId != null" >
         detail_id,
       </if>
-      <if test="reserve2 != null" >
-        reserve2,
+      <if test="img != null" >
+        img,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -184,8 +184,8 @@
       <if test="detailId != null" >
         #{detailId,jdbcType=INTEGER},
       </if>
-      <if test="reserve2 != null" >
-        #{reserve2,jdbcType=VARCHAR},
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -228,8 +228,8 @@
       <if test="record.detailId != null" >
         detail_id = #{record.detailId,jdbcType=INTEGER},
       </if>
-      <if test="record.reserve2 != null" >
-        reserve2 = #{record.reserve2,jdbcType=VARCHAR},
+      <if test="record.img != null" >
+        img = #{record.img,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -248,7 +248,7 @@
       period = #{record.period,jdbcType=INTEGER},
       teacher_id = #{record.teacherId,jdbcType=INTEGER},
       detail_id = #{record.detailId,jdbcType=INTEGER},
-      reserve2 = #{record.reserve2,jdbcType=VARCHAR}
+      img = #{record.img,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -283,8 +283,8 @@
       <if test="detailId != null" >
         detail_id = #{detailId,jdbcType=INTEGER},
       </if>
-      <if test="reserve2 != null" >
-        reserve2 = #{reserve2,jdbcType=VARCHAR},
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -300,8 +300,7 @@
       period = #{period,jdbcType=INTEGER},
       teacher_id = #{teacherId,jdbcType=INTEGER},
       detail_id = #{detailId,jdbcType=INTEGER},
-      reserve2 = #{reserve2,jdbcType=VARCHAR}
+      img = #{img,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
 </mapper>
