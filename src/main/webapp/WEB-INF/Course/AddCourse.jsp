@@ -8,26 +8,30 @@
 <title>添加课程</title>
 </head>
 <body>
-	<form action="uploadCourse.action" method="post" enctype="multipart/form-data">
+	<form action="AddCourse.action" method="post" enctype="multipart/form-data">
 		课程图片：<input type="file" name="pic"/>
 		课程名称：<input type="text" name="name"/>
 		课程详情：<input type="text" name="profile">
+		课程类别:<select name="typeId">
+    		<c:forEach items="${typeList }" var="t">
+	      	<option value="${t.id }">${t.name }</option>
+	      </c:forEach>
+          </select>
 		课程开始时间：<input type="text" name="starttime"/>
 		课程结束时间：<input type="text" name="endttime"/>
 		课程价钱:<input type="text" name="price"/>
-		课程价钱:<input type="text" name="period"/>
+		课程课时:<input type="text" name="period"/>
 		授课老师:<select name="teacherId">
-    		<option value=" "></option>
     		<c:forEach items="${teacherList }" var="teacher">
 	      	<option value="${teacher.id }">${teacher.username }</option>
 	      </c:forEach>
           </select>
 	           细分类别:<select name="detailId">
-	    		<option value=" "></option>
 	    		<c:forEach items="${detailList }" var="detail">
 		      	<option value="${detail.id }">${detail.name }</option>
 		      </c:forEach>
 	          </select>
+	          <input type="submit" value="添加">
 	</form>
 </body>
 </html>

@@ -4,6 +4,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 
+	<!-- 配置系统获得项目根目录 -->
+		<context-param>
+			<param-name>webAppRootKey</param-name>
+			<param-value>root</param-value>
+		</context-param>
+		<!-- 负责将web应用根目录以webAppRootKey上下文参数指定的属性名添加到系统参数中 -->
+		<listener>
+			<listener-class>
+				org.springframework.web.util.WebAppRootListener
+			</listener-class>
+		</listener>
 	<!-- needed for ContextLoaderListener -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
