@@ -2,15 +2,16 @@ package com.ang.elearning.serviceTest;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.apache.shiro.crypto.hash.SimpleHash;
 
-enum Type{
-}
 public class Test {
 
 	@org.junit.Test
 	public void test() {
-		
+		ArrayList<String> list = new ArrayList<>();
+		list.add("a");
 	}
 
 	@org.junit.Test

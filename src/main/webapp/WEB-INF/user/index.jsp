@@ -11,6 +11,8 @@
 <br><br>
 <a href="${pageContext.request.contextPath }/test.jsp">TEST PAGE</a>
 <br><br>
+<a href="${pageContext.request.contextPath }/limit_user.jsp">LIMIT_USER PAGE</a>
+<br><br>
 <a href="${pageContext.request.contextPath }/logout">Logout</a>
 </body>
 </html>
