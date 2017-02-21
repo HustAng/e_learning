@@ -1276,7 +1276,7 @@ h3.tittle {
     padding: 0px 50px;
 }
 /** course_detail*/
-.tab-content{
+.intro_dis .tab-content{
     width:700px;
     float: left;
 }
