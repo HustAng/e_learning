@@ -9,6 +9,8 @@ public interface ICourseService {
 	public Course findCourseById(int id);
 	//根据课程大类型查找课程
 	public List<Course> findCourseByType(int typeId);
+	//查询课程
+	public List<Course> findAllCourse();
 	//增加课程
 	public void add(Course course);
 	//根绝Id修改课程信息
