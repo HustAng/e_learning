@@ -1,5 +1,7 @@
 package com.ang.elearning.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ang.elearning.po.User;
 import com.ang.elearning.service.IUserService;
 import com.ang.elearning.shiro.CustomizedToken;
 import com.ang.elearning.shiro.LoginType;
@@ -42,6 +45,7 @@ public class UserController {
 
 	}
 
+	// 用户登录
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(@RequestParam("email") String email, @RequestParam("password") String password) {
 		Subject currentUser = SecurityUtils.getSubject();
@@ -49,7 +53,7 @@ public class UserController {
 			// 指明登录类型为普通用户登录(在授权时使用)
 			currentUser.getSession().setAttribute("loginType", USER_LOGIN_TYPE);
 			CustomizedToken customizedToken = new CustomizedToken(email, password, USER_LOGIN_TYPE);
-			//暂时指定为false，方便测试
+			// 暂时指定为false，方便测试
 			customizedToken.setRememberMe(false);
 			try {
 				currentUser.login(customizedToken);
@@ -65,6 +69,13 @@ public class UserController {
 		} else {
 			return "user/index";
 		}
+	}
+
+	// 用户注册
+	@RequestMapping(value = "register", method = RequestMethod.POST)
+	public String register(User user, @RequestParam("birthStr") String birthStr) {
+		userService.addUser(user,birthStr);
+		return "redirect:/login.jsp";
 	}
 
 }

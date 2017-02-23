@@ -1,5 +1,7 @@
 package com.ang.elearning.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 
@@ -8,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.ang.elearning.dao.RoleMapper;
 import com.ang.elearning.po.Admin;
 import com.ang.elearning.po.Role;
+import com.ang.elearning.po.RoleExample;
+import com.ang.elearning.po.RoleExample.Criteria;
 import com.ang.elearning.po.Teacher;
 import com.ang.elearning.po.User;
 import com.ang.elearning.service.IRoleService;
@@ -40,6 +44,13 @@ public class RoleServiceImpl implements IRoleService {
 		Integer roleId = teacher.getRoleId();
 		role = roleDao.selectByPrimaryKey(roleId);
 		return role;
+	}
+
+	@Override
+	public List<Role> getAllRoles() {
+		RoleExample example = new RoleExample();
+		List<Role> roles = roleDao.selectByExample(example);
+		return roles;
 	}
 
 }

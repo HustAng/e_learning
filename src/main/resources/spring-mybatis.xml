@@ -183,9 +183,26 @@
 			<value>
 				<!-- 第一次匹配优先的原则 -->
 				/login.jsp = anon
+				/register.jsp = anon
+				
+				/adminLogin.jsp = anon
+				
 				/user/login = anon
+				/user/register = anon
 				/admin/login = anon
 				/teacher/login = anon
+				/stylesheets/** = anon
+				
+				/css/** = anon
+				/fonts/** = anon
+				/images/** = anon
+				/js/** = anon
+				/assets/** = anon
+				/lib/** = anon
+				
+				/user/** = roles[user]
+				/admin/** = roles[admin]
+				/teacher/** = roles[teacher]
 				
 				<!-- 测试：只有admin角色可以访问test.jsp -->
 				/test.jsp = roles[admin]
