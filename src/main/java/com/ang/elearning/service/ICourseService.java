@@ -13,6 +13,8 @@ public interface ICourseService {
 	public List<Course> findAllCourse();
 	//增加课程
 	public void add(Course course);
+	//根据课程名称查询
+	public  List<Course> findCourseByName(String courseName);
 	//根绝Id修改课程信息
 	public void updateById(Course course);
 	//根据Id删除课程

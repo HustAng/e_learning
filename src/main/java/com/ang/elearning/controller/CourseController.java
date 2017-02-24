@@ -28,6 +28,7 @@ import com.ang.elearning.service.ICourseService;
 import com.ang.elearning.service.IDetailService;
 import com.ang.elearning.service.ITeacherService;
 import com.ang.elearning.service.ITypeService;
+import com.sun.org.glassfish.gmbal.ParameterNames;
 
 
 @Controller
@@ -62,6 +63,14 @@ public class CourseController {
 	{
 		ModelAndView modelAndView=new ModelAndView("Course/CourseList");
 		List<Course> list=courseService.findCourseByType(typeId);
+		modelAndView.addObject("courseList",list);
+		return modelAndView;
+	}
+	@RequestMapping(value="/getCourseByCourseName",method=RequestMethod.GET)
+	public ModelAndView getAllCourse(@RequestParam("courseName")String courseName)
+	{
+		ModelAndView modelAndView=new ModelAndView("houtaiCourse/CourseManage");
+		List<Course> list=courseService.findCourseByName(courseName);
 		modelAndView.addObject("courseList",list);
 		return modelAndView;
 	}

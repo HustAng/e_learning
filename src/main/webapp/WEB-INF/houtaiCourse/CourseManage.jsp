@@ -153,6 +153,10 @@
     <a href="#AddCourse" role="button" data-toggle="modal" style="color: #fff;"><button class="btn btn-primary"><i class="fa fa-plus"></i> 添加新课程</button></a>
     <button class="btn btn-default">导入</button>
     <button class="btn btn-default">导出</button>
+    <form class="form-inline" style="display:inline;margin-left:20px;" id="searchCourse" action="getCourseByCourseName.action">
+            <input class="input-xlarge form-control" placeholder="请输入课程名称" id="appendedInputButton" type="text" name="courseName">
+            <button class="btn btn-default" type="submit" value="搜索"><i class="fa fa-search"></i></button>
+     </form>
   <div class="btn-group">
   </div>
 </div>

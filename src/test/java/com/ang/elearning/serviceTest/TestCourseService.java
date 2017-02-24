@@ -28,6 +28,12 @@ public class TestCourseService {
 		Course course=courseService.findCourseById(1);
 		System.out.println(course.getName());
 	}
+	//根据课程名称查找
+	@Test
+	public void testFindCourseByName() {
+		List<Course> course=courseService.findCourseByName("四级");
+		System.out.println(course.size());
+	}
 	//根据课程类型查找课程
 	@Test
 	public void testFindCourse()
