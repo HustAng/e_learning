@@ -14,6 +14,90 @@
     <result column="detail_id" property="detailId" jdbcType="INTEGER" />
     <result column="img" property="img" jdbcType="VARCHAR" />
   </resultMap>
+  
+  <select id="getCourseByUserId" parameterType="int" resultMap="BaseResultMap">
+     select tb_course.name,tb_course.type_id,tb_course.profile,tb_course.starttime,tb_course.endtime,tb_course.price,tb_course.period,tb_course.teacher_id,tb_course.detail_id,tb_course.img from tb_course,tb_course_order where tb_course.id = tb_course_order.course_id and tb_course_order.user_id = #{user_id}
+  </select>
+  
+  <select id="getFreeCourseByMember" resultMap="BaseResultMap">
+     SELECT
+	c.*
+FROM
+	tb_course c,
+	tb_course_order co
+WHERE
+	c.price = 0
+AND c.id = co.course_id
+GROUP BY
+	co.course_id
+ORDER BY
+	COUNT(co.user_id) DESC
+  </select>
+  
+  <select id="getMemberById" parameterType="Integer" resultType="Integer">
+      select count(*) from tb_course_order where tb_course_order.course_id = #{course_id}
+  </select>
+  
+  <select id="getNotFreeCourseByMember" resultMap="BaseResultMap">
+       SELECT
+	c.*
+FROM
+	tb_course c,
+	tb_course_order co
+WHERE
+	c.price != 0
+AND c.id = co.course_id
+GROUP BY
+	co.course_id
+ORDER BY
+	COUNT(co.user_id) DESC
+  </select>
+  
+  <select id="getTeacherNameByCourseId" parameterType="int" resultType="String">
+    SELECT DISTINCT
+	tb_teacher.username
+FROM
+	tb_teacher,
+	tb_course
+WHERE
+	tb_course.teacher_id = tb_teacher.id
+AND tb_course.teacher_id = #{id}
+  
+  </select>
+  
+  <select id="getFreeCourseByMemberDetailId" parameterType="int" resultMap="BaseResultMap">
+    SELECT
+	c.*
+FROM
+	tb_course c,
+	tb_course_order co
+WHERE
+	c.price = 0
+AND c.id = co.course_id
+AND c.detail_id = #{id}
+GROUP BY
+	co.course_id
+ORDER BY
+	COUNT(co.user_id) DESC
+  </select>
+  
+  <select id="getNotFreeCourseByMemberDetailId" parameterType="int" resultMap="BaseResultMap">
+        SELECT
+	c.*
+FROM
+	tb_course c,
+	tb_course_order co
+WHERE
+	c.price != 0
+AND c.id = co.course_id
+AND c.detail_id = #{id}
+GROUP BY
+	co.course_id
+ORDER BY
+	COUNT(co.user_id) DESC
+ 
+  </select>
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

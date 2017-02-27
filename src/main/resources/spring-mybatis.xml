@@ -182,19 +182,20 @@
 		<property name="filterChainDefinitions">
 			<value>
 				<!-- 第一次匹配优先的原则 -->
-				/login.jsp = anon
+				/** anon
+				<!-- /login.jsp = anon
 				/user/login = anon
 				/admin/login = anon
 				/teacher/login = anon
 				
-				<!-- 测试：只有admin角色可以访问test.jsp -->
+				测试：只有admin角色可以访问test.jsp
 				/test.jsp = roles[admin]
 				
 				/limit_user.jsp = kickout,roles[user]
 
-				/logout = logout
+				/logout = logout 
 				
-				/** = authc
+				/** = authc -->
 			</value>
 		</property>
 	</bean>

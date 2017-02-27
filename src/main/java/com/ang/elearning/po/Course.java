@@ -112,4 +112,12 @@ public class Course {
     public void setImg(String img) {
         this.img = img == null ? null : img.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Course [id=" + id + ", name=" + name + ", typeId=" + typeId + ", profile=" + profile + ", starttime="
+				+ starttime + ", endtime=" + endtime + ", price=" + price + ", period=" + period + ", teacherId="
+				+ teacherId + ", detailId=" + detailId + ", img=" + img + "]";
+	}
+    
 }

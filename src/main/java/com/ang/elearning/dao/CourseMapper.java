@@ -27,4 +27,20 @@ public interface CourseMapper {
     int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
+    
+    List<Course> getCourseByUserId(Integer user_id);
+    
+    List<Course> getFreeCourseId();
+    
+    List<Course> getFreeCourseByMember();
+    
+    List<Course> getNotFreeCourseByMember();
+    
+    List<Course> getFreeCourseByMemberDetailId(int id);
+    
+    List<Course> getNotFreeCourseByMemberDetailId(int id);
+    
+    String getTeacherNameByCourseId(int id);
+    
+    int getMemberById(int course_id);
 }

@@ -7,7 +7,11 @@ import javax.annotation.Resource;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Service;
 
+import com.ang.elearning.dao.CourseOrderMapper;
 import com.ang.elearning.dao.UserMapper;
+import com.ang.elearning.po.Course;
+import com.ang.elearning.po.CourseOrder;
+import com.ang.elearning.po.CourseOrderExample;
 import com.ang.elearning.po.User;
 import com.ang.elearning.po.UserExample;
 import com.ang.elearning.po.UserExample.Criteria;
@@ -19,6 +23,9 @@ public class UserServiceImpl implements IUserService {
 	// 推荐使用@Resource而不是@Autowired
 	@Resource
 	private UserMapper userDao;
+	
+	@Resource
+	private CourseOrderMapper courseOrderDao;
 
 	@RequiresRoles({"user"})
 	@Override
@@ -37,5 +44,7 @@ public class UserServiceImpl implements IUserService {
 			user = userList.iterator().next();
 		return user;
 	}
+
+
 
 }

@@ -1,4 +1,7 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>          
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <title>首页</title>
@@ -124,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="col-md-3 incredible-grid">
 								<img src="images/free1.jpg" class="img-responsive" alt="/">
 								<h4><a href="course_detail.html">四种方式轻松开启宝宝英语启蒙</a></h4>
-								<p>我的宝宝几岁开始学英语才不晚？英语启蒙教育有啥难？英语不够好的妈妈怎么教孩子学习英语？</p>
+								<p> 轻松学  </p>
 								<p><span>免费</span>（2568人学过）</p>
 							</div>
 							<div class="col-md-3 incredible-grid">

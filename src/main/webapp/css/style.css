@@ -606,8 +606,8 @@ a.button:hover {
 .service-grids {
   margin-top: 3em;
 }
-/*-- services --*/
-/*-- racing --*/
+
+/*-- course --*/
 .incredible .toplist{
     width: 180px;
     float: left;
@@ -617,6 +617,7 @@ a.button:hover {
 }
 .incredible .toplist ul li{
     list-style-type: none;
+    position:relative;
 }
 .incredible .toplist ul li a{
     float: left;
@@ -626,6 +627,9 @@ a.button:hover {
 .incredible .toplist ul li a:hover{
    color: #05a581;
 
+}
+.topwidth{
+    width:170px;
 }
 .incredible .e_course{
     
@@ -755,10 +759,12 @@ h3.tittle {
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
   border-top: none !important;
 }
+
 .tab-content > .active {
   display: block;
   visibility: visible;
 }
+
 /*--//Typography --*/
 /*contacts*/
 .mail {
@@ -850,6 +856,10 @@ h3.tittle {
   -o-transition: 0.5s all;
   -moz-transition: 0.5s all;
   -ms-transition: 0.5s all;
+}
+#test_free{
+    width:150px;
+    float:clear both;        
 }
 /**course_intro*/
 .breadcrumb li a{
@@ -1276,7 +1286,8 @@ h3.tittle {
     padding: 0px 50px;
 }
 /** course_detail*/
-.tab-content{
+
+.intro_dis .tab-content{
     width:700px;
     float: left;
 }
@@ -1373,6 +1384,29 @@ h3.tittle {
 }
 .cg_chapter ul ul li i{
     margin: 0px 20px;
+}
+/** mylearning*/
+.mycourse{
+    height: 20px;
+}
+.cg_course .progress{
+    height: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.cg_course .proinfo{
+    float: clear both;
+    float: left;
+    display: block;
+    height: 20px;
+    margin-left:10px;
+}
+/**shopcart.html*/
+
+.table .checkbox{
+    float: left;
+    vertical-align: middle;
 }
 /**Responsive*/
 @media (max-width:1440px){
