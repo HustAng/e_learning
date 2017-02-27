@@ -39,7 +39,7 @@ public class BuyController {
 		//System.out.println(p2_Order);
 		String p3_Amt = request.getParameter("p3_Amt");// 支付的金额
 		String p4_Cur = "CNY";// 交易种币，固定值为CNY，表示人民币
-		String p5_Pid = request.getParameter("p5_pid");// 商品名称
+		String p5_Pid = "";//request.getParameter("p5_pid");// 商品名称
 		String p6_Pcat = "";// 商品各类
 		String p7_Pdesc = "";// 商品描述
 		//System.out.println(p7_Pdesc);
@@ -82,13 +82,18 @@ public class BuyController {
 	public ModelAndView CourseOrderList()
 	{
 		List<CourseOrder> orderlist= courseOrderService.getCourseOrder(1, 1,"0");
-		ModelAndView modelAndView=new ModelAndView("list");
+		ModelAndView modelAndView=new ModelAndView("Order");
 		List<Course> courseList=new ArrayList<>();
 		Course course;
 		for(CourseOrder courseOrder:orderlist)
 		{course= courseService.findCourseById(courseOrder.getCourseId());courseList.add(course);}
 		modelAndView.addObject("courseOrderList",orderlist);
 		modelAndView.addObject("courseList",courseList);
+		return modelAndView;
+	}
+	@RequestMapping("test")
+	public ModelAndView CourseBefore(){
+		ModelAndView modelAndView =new ModelAndView("Order");
 		return modelAndView;
 	}
 }

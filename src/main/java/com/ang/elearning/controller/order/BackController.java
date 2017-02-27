@@ -37,7 +37,6 @@ public class BackController {
 		if(r1_Code.equals("1")) {
 			if(r9_BType.equals("1")) {
 				response.getWriter().print("<h1>支付成功！</h1>");//其实支付不成功时根本易宝根本就不会返回到本Servlet
-				
 				response.getWriter().print("支付金额为：" + r3_Amt + "<br/>");
 				response.getWriter().print("订单号为：" + r6_Order + "<br/>");
 			}
