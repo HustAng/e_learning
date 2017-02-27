@@ -6,7 +6,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 String uuid=UUID.randomUUID().toString();
-uuid=uuid.substring(0, 8);
+uuid=uuid.substring(0, 7);
 request.setAttribute("uuid", uuid);
 %>
 
@@ -30,8 +30,9 @@ request.setAttribute("uuid", uuid);
   <body>
 <form action="${pageContext.request.contextPath }/course/order" method="post">
 	<c:forEach items="${courseList}" var="course">
-	<input name="p2_Order"  value="${uuid}"  /><br/>
-	课程名称<input type="text" name="p5_pid" value="${course.name}" readonly="readonly"/><br/>
+	<input name="p2_Order"  value="${uuid}" type="hidden" /><br/>
+	课程名称<input type="text"  value="${course.name}" readonly="readonly"/><br/>
+			<input name="p5_pid"  value="${course.id}" type="hidden"/>
 	金　额：<input type="text" name="p3_Amt" value="${course.price}" readonly="readonly"/><br/>
 	</c:forEach>
 	选择银行：<br/>

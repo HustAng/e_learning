@@ -36,12 +36,14 @@ public class BuyController {
 		String p0_Cmd = "Buy";// 业务类型，固定值为buy，即“买”
 		String p1_MerId = "10001126856";// 在易宝注册的商号
 		String p2_Order = request.getParameter("p2_Order");// 订单编号
+		//System.out.println(p2_Order);
 		String p3_Amt = request.getParameter("p3_Amt");// 支付的金额
 		String p4_Cur = "CNY";// 交易种币，固定值为CNY，表示人民币
 		String p5_Pid = request.getParameter("p5_pid");// 商品名称
 		String p6_Pcat = "";// 商品各类
 		String p7_Pdesc = "";// 商品描述
-		String p8_Url = "http://localhost:8080/buy/BackServlet";// 电商的返回页面，当支付成功后，易宝会重定向到这个页面
+		//System.out.println(p7_Pdesc);
+		String p8_Url = "http://localhost:8080/course/courseOrderback";// 电商的返回页面，当支付成功后，易宝会重定向到这个页面
 		String p9_SAF = "";// 送货地址
 		String pa_MP = "";// 商品扩展信息
 		String pd_FrpId = request.getParameter("pd_FrpId");// 支付通道，即选择银行
@@ -55,7 +57,7 @@ public class BuyController {
 		String hmac = PaymentUtil.buildHmac(p0_Cmd, p1_MerId, p2_Order, p3_Amt,
 				p4_Cur, p5_Pid, p6_Pcat, p7_Pdesc, p8_Url, p9_SAF, pa_MP,
 				pd_FrpId, pr_NeedResponse, keyValue);
-		
+		//System.out.println("hmac : "+hmac);
 		// 把所有参数连接到网关地址后面
 		String url = "https://www.yeepay.com/app-merchant-proxy/node";
 		url += "?p0_Cmd=" + p0_Cmd + 
@@ -72,7 +74,7 @@ public class BuyController {
 				"&pd_FrpId=" + pd_FrpId + 
 				"&pr_NeedResponse=" + pr_NeedResponse + 
 				"&hmac=" + hmac;
-//		System.out.println(url);
+		//System.out.println(url);
 		// 重定向到网关
 		response.sendRedirect(url);
 	}
