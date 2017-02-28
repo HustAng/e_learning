@@ -35,8 +35,8 @@
 		<property name="maxIdle" value="${maxIdle}"></property>
 		<!-- 连接池最小空闲 -->
 		<property name="minIdle" value="${minIdle}"></property>
-		<!--  获取连接最大等待时间 
-		<property name="maxWait" value="${maxWait}"></property> -->
+		<!--  获取连接最大等待时间 -->
+		<property name="maxWait" value="${maxWait}"></property> 
 	</bean>
 
 	<!-- 配置SqlSessionFactoryBean -->
@@ -172,8 +172,8 @@
 		<property name="filterChainDefinitions">
 			<value>
 				<!-- 第一次匹配优先的原则 -->
-				/** = anon
-				<!-- /login.jsp = anon
+				<!-- /** = anon -->
+				/login.jsp = anon
 				/user/login = anon
 				/admin/login = anon
 				/teacher/login = anon
@@ -183,7 +183,7 @@
 
 				/logout = logout
 
-				/** = authc -->
+			    /** = authc 
 			</value>
 		</property>
 	</bean>

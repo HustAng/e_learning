@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <a href="${pageContext.request.contextPath }/icourse/getMain">点击进入</a>
+    <%-- <a href="${pageContext.request.contextPath }/icourse/getMain">点击进入</a> --%>
     
-    <a href="${pageContext.request.contextPath }/icourse/getCourse?id=3">course.jsp</a>
+    <%
+      request.getRequestDispatcher("/course/index.jsp").forward(request, response);
+    %>
+    
 </body>
 </html>
