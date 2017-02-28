@@ -45,9 +45,9 @@
 				<div class="top-menu">
 					<span class="menu"><img src="images/nav.png" alt=""/> </span>
 					<ul>
-						<li><a href="${baseurl }/course/getMain" class="active">主页</a></li>
-							<li><a href="${baseurl }/course/getAll">课程</a></li>
-							<li><a href="${baseurl }/course/getWord">单词</a></li>
+						<li><a href="${baseurl }/icourse/getMain" class="active">主页</a></li>
+							<li><a href="${baseurl }/icourse/getAll">课程</a></li>
+							<li><a href="${baseurl }/icourse/getWord">单词</a></li>
 						<li><a href="about.html">关于</a></li>
 						<li><a href="service.html">服务</a></li>
 						<li><a href="contact.html">联系</a></li>
@@ -78,7 +78,7 @@
 				<div class="container">
 					<div >
 						<ul class="breadcrumb" contenteditable="true">
-							<li>​<a href="${baseurl }/index.jsp">主页</a></li>
+							<li>​<a href="${baseurl }/icourse/getMain">主页</a></li>
 							<li><a href="course.html">课程</a></li>
 							<li><a href="course_intro.html">生活英语</a></li>
 							<li><a class="active" href="this">课程详情</a></li>
@@ -106,7 +106,7 @@
 													讲师：
 												</li>
 												<li id="teacher">
-													"${requestScope.course.id }"
+													"${requestScope.course.name }"
 												</li>
 											</ul>
 											

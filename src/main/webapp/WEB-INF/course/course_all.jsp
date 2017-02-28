@@ -45,9 +45,9 @@
 				<div class="top-menu">
 					<span class="menu"><img src="${baseurl }/images/nav.png" alt=""/> </span>
 					<ul>
-						<li><a href="${baseurl }/course/getMain" class="active">主页</a></li>
-							<li><a href="${baseurl }/course/getAll">课程</a></li>
-							<li><a href="${baseurl }/course/getWord">单词</a></li>
+						<li><a href="${baseurl }/icourse/getMain" class="active">主页</a></li>
+							<li><a href="${baseurl }/icourse/getAll">课程</a></li>
+							<li><a href="${baseurl }/icourse/getWord">单词</a></li>
 						<li><a href="about.html">关于</a></li>
 						<li><a href="service.html">服务</a></li>
 						<li><a href="contact.html">联系</a></li>

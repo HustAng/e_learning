@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
 	<!-- 自动扫描的目录 -->
 	<context:component-scan base-package="com.ang.elearning"></context:component-scan>
@@ -39,8 +35,8 @@
 		<property name="maxIdle" value="${maxIdle}"></property>
 		<!-- 连接池最小空闲 -->
 		<property name="minIdle" value="${minIdle}"></property>
-		<!-- 获取连接最大等待时间 -->
-		<property name="maxWait" value="${maxWait}"></property>
+		<!--  获取连接最大等待时间 
+		<property name="maxWait" value="${maxWait}"></property> -->
 	</bean>
 
 	<!-- 配置SqlSessionFactoryBean -->
@@ -99,7 +95,6 @@
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="cacheManager" ref="cacheManager" />
 		<property name="authenticator" ref="authenticator"></property>
-		<property name="sessionManager" ref="sessionManager"></property>
 		<!-- 可以配置多个Realm，其实会把realms属性赋值给ModularRealmAuthenticator的realms属性 -->
 		<property name="realms">
 			<list>
@@ -173,16 +168,11 @@
 		<property name="securityManager" ref="securityManager" />
 		<property name="loginUrl" value="/login.jsp" />
 		<property name="unauthorizedUrl" value="/login.jsp" />
-		<property name="filters">
-		<util:map>
-		<entry key="kickout" value-ref="kickoutFilter"></entry>
-		</util:map>
-		</property>
 		<!-- 配置哪些页面需要受保护，以及访问这些页面需要的权限 -->
 		<property name="filterChainDefinitions">
 			<value>
 				<!-- 第一次匹配优先的原则 -->
-				/** anon
+				/** = anon
 				<!-- /login.jsp = anon
 				/user/login = anon
 				/admin/login = anon
@@ -190,11 +180,9 @@
 				
 				测试：只有admin角色可以访问test.jsp
 				/test.jsp = roles[admin]
-				
-				/limit_user.jsp = kickout,roles[user]
 
-				/logout = logout 
-				
+				/logout = logout
+
 				/** = authc -->
 			</value>
 		</property>
@@ -206,50 +194,6 @@
 		<property name="authenticationStrategy">
 			<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"></bean>
 		</property>
-	</bean>
-	
-	<!-- 8. 配置会话管理器 -->
-	<!-- 会话ID生成器 -->
-    <bean id="sessionIdGenerator" class="org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator"/>
-    
-    <!-- 会话Cookie模板 -->
-    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
-        <constructor-arg value="sid"/>
-        <property name="httpOnly" value="true"/>
-        <property name="maxAge" value="-1"/>
-    </bean>
-    
-    <!-- 会话DAO -->
-    <bean id="sessionDAO" class="org.apache.shiro.session.mgt.eis.EnterpriseCacheSessionDAO">
-        <property name="activeSessionsCacheName" value="shiro-activeSessionCache"/>
-        <property name="sessionIdGenerator" ref="sessionIdGenerator"/>
-    </bean>
-
-    <!-- 会话验证调度器 -->
-    <bean id="sessionValidationScheduler" class="org.apache.shiro.session.mgt.quartz.QuartzSessionValidationScheduler">
-        <property name="sessionValidationInterval" value="1800000"/>
-        <property name="sessionManager" ref="sessionManager"/>
-    </bean>
-
-    <!-- 会话管理器 -->
-    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <property name="globalSessionTimeout" value="1800000"/>
-        <property name="deleteInvalidSessions" value="true"/>
-        <property name="sessionValidationSchedulerEnabled" value="true"/>
-        <property name="sessionValidationScheduler" ref="sessionValidationScheduler"/>
-        <property name="sessionDAO" ref="sessionDAO"/>
-        <property name="sessionIdCookieEnabled" value="true"/>
-        <property name="sessionIdCookie" ref="sessionIdCookie"/>
-    </bean>
-	
-	<!-- 9. 配置自定义过滤器 -->
-	<!-- 配置kickoutFilter以控制并发登录人数 -->
-	<bean id="kickoutFilter" class="com.ang.elearning.filter.KickoutFilter">
-	<property name="cacheManager" ref="cacheManager"></property>
-	<property name="sessionManager" ref="sessionManager"></property>
-	<property name="kickoutAfter" value="false"></property>
-	<property name="maxSession" value="1"></property>
-	<property name="kickoutUrl" value="/login.jsp"></property>
 	</bean>
 	<!-- shiro end -->
 </beans>

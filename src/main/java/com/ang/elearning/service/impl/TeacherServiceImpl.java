@@ -30,4 +30,14 @@ public class TeacherServiceImpl implements ITeacherService {
 		return teacher;
 	}
 
+	@Override
+	public List<Teacher> getAllTeacher() {
+		TeacherExample example = new TeacherExample();
+		Criteria criteria = example.createCriteria();
+		List<Teacher> teacherList = teacherDao.selectByExample(example);
+		return teacherList;
+	}
+
+	
+
 }

@@ -43,19 +43,6 @@ public class TestUserService1 {
 		System.out.println(courses.iterator().next());
 	}
 	
-	@Test
-	public void test3(){
-		String name = courseService.getTeacherNameByCourseId(1);
-		System.out.println(name);
-	}
-	
-	
-	@Test
-	public void test4(){
-		List<Course> courses1 = courseService.getCourseByDetailId(1);
-		if(courses1!=null){
-			System.out.println(courses1.iterator().next());
-		}
-	}
+
 
 }

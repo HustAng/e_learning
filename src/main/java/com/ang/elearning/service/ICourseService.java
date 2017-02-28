@@ -5,22 +5,14 @@ import java.util.List;
 import com.ang.elearning.po.Course;
 
 public interface ICourseService {
-
-	public int getMember(int id);
-	
-	public Course getCourseById(int id);
-	
-	public List<Course> getCourseByDetailId(int id);
-	
-	public List<Course> getFreeCourseByMember();
-	
-	public List<Course> getNotFreeCourseByMember();
-	
-	public Integer getMemberById(Integer course_id);
-	
-	public String getTeacherNameByCourseId(int id);
-	
-	public List<Course> getFreeCourseByMemberDetailId(int id);
-	
-	public List<Course> getNotFreeCourseByMemberDetailId(int id);
+	//根据课程id查找课程
+	public Course findCourseById(int id);
+	//根据课程大类型查找课程
+	public List<Course> findCourseByType(int typeId);
+	//增加课程
+	public void add(Course course);
+	//根绝Id修改课程信息
+	public void updateById(Course course);
+	//根据Id删除课程
+	public void deleteCourse(int id);
 }

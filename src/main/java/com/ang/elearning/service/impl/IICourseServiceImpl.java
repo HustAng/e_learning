@@ -10,10 +10,10 @@ import com.ang.elearning.dao.CourseMapper;
 import com.ang.elearning.po.Course;
 import com.ang.elearning.po.CourseExample;
 import com.ang.elearning.po.CourseExample.Criteria;
-import com.ang.elearning.service.ICourseService;
+import com.ang.elearning.service.IICourseService;
 
-@Service("courseService")
-public class ICourseServiceImpl implements ICourseService{
+@Service("icourseService")
+public class IICourseServiceImpl implements IICourseService{
 
 	@Resource
 	private CourseMapper courseDao;
