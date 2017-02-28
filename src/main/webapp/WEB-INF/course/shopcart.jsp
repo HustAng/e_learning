@@ -82,7 +82,7 @@
 		<div class="incredible">
 			<div class="container">
 					
-					<div class="order_remind"><h3>我的购物车</h3>共<span>2</span>件商品</div>
+					<div class="order_remind"><h3>我的购物车</h3>共<span></span>件商品</div>
 					<div>
 						<form>
 							<table class="table" contenteditable="true">
@@ -151,7 +151,7 @@
 							</div>
 							<div class="pay">
 								<div class="suborder"><button class="btn btn-warning btn-large" type="button">提交订单</button></div>
-								<div class="real_pay"><p>实付金额：</p><span id="real_pay">￥${course.price}</span><a href="shopcart.html">返回购物车修改</a></div>
+								<div class="real_pay"><p>实付金额：</p><span id="real_pay">￥</span><a href="${baseurl }/icourse/getMain">继续购买</a></div>
 								<div class="clearfix"></div>
 							</div>
 						</form>

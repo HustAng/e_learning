@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <jsp:forward page="/course/index.jsp"></jsp:forward>
+    <jsp:forward page="/icourse/getMain"></jsp:forward>
+    
+    <%-- <a href="${pageContext.request.contextPath }/icourse/getMain">点一点</a> --%>
 </body>
 </html>
