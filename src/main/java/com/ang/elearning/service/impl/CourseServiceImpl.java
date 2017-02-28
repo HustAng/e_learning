@@ -50,6 +50,23 @@ public class CourseServiceImpl implements ICourseService {
 		courseDao.deleteByPrimaryKey(id);
 		
 	}
+	@Override
+	public List<Course> findAllCourse() {
+		List<Course> listCourse =new ArrayList<>();
+		CourseExample example=new CourseExample();
+		Criteria criteria= example.createCriteria();
+		listCourse = courseDao.selectByExample(example);
+		return listCourse;
+	}
+	@Override
+	public List<Course> findCourseByName(String courseName) {
+		List<Course> listCourse =new ArrayList<>();
+		CourseExample example=new CourseExample();
+		Criteria criteria= example.createCriteria();
+		criteria.andNameLike("%"+courseName+"%");
+		listCourse = courseDao.selectByExample(example);
+		return listCourse;
+	}
 	
 
 }

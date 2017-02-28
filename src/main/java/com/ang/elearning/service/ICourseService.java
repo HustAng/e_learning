@@ -15,4 +15,8 @@ public interface ICourseService {
 	public void updateById(Course course);
 	//根据Id删除课程
 	public void deleteCourse(int id);
+	
+	public List<Course> findAllCourse();
+	
+	public List<Course> findCourseByName(String courseName);
 }

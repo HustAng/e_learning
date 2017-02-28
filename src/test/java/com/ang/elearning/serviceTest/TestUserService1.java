@@ -37,11 +37,7 @@ public class TestUserService1 {
 		User user = userService.getUserById(1);
 		System.out.println(user);
 	}
-	@Test
-	public void test2(){
-		List<Course> courses = courseorderservice.getCourseByUserId(1);
-		System.out.println(courses.iterator().next());
-	}
+
 	
 
 

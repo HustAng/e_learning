@@ -33,7 +33,7 @@
 <body>
 	<div class="t">
 		<div class="t_n">
-			<div class="r_nr"><a href="mylearning.html">我的学习</a>&nbsp;<a href="#">消息<em id="msg_num">2</em></a>&nbsp;<a href="shopcart.html">购物车<em id="buy_num">1</em></a>&nbsp;<a href="login.html">登录/注册</a></div>
+			<div class="r_nr"><a href="mylearning.html">我的学习</a>&nbsp;<a href="#">消息<em id="msg_num">2</em></a>&nbsp;<a href="shopcart.html">购物车<em id="buy_num">1</em></a>&nbsp;<a href="${baseurl }/login.jsp">登录/注册</a></div>
 		</div>
 	</div>
 <div class="header">
@@ -172,7 +172,7 @@
 
 			  <div class="e_course">
 					<h3>生活英语</h3>
-					<a class="more" href="${baseurl }/course/getAllByDetailId?id=1">更多》</a>
+					<a class="more" href="${baseurl }/icourse/getAllByDetailId?id=1">更多》</a>
 						<div class="incredible-grids"  >
 						<c:forEach items="${course1 }" var="course" begin="0" end="3">
 						    <div class="col-md-3 incredible-grid">
@@ -257,7 +257,7 @@
 
 			  <div class="e_course">
 					<h3>考试英语</h3>
-					<a class="more" href="${baseurl }/course/getAllByDetailId?id=2">更多》</a>
+					<a class="more" href="${baseurl }/icourse/getAllByDetailId?id=2">更多》</a>
 						<div class="incredible-grids"  >
 						<c:if test="${empty requestScope.course2 }">
 						   没有课程信息
@@ -347,7 +347,7 @@
 
 			  <div class="e_course">
 					<h3>商务英语</h3>
-					<a class="more" href="${baseurl }/course/getAllByDetailId?id=1">更多》</a>
+					<a class="more" href="${baseurl }/icourse/getAllByDetailId?id=1">更多》</a>
 						<div class="incredible-grids"  >
 						<c:if test="${empty requestScope.course3 }">
 						   没有课程信息

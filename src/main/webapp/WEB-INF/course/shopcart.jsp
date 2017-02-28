@@ -74,7 +74,7 @@
 <body >
 	<div class="t">
 		<div class="t_n">
-			<div class="r_nr"><a href="mylearning.html">我的学习</a>&nbsp;<a href="#">消息<em id="msg_num">2</em></a>&nbsp;<a href="shopcart.html">购物车<em id="buy_num">2</em></a>&nbsp;<a href="#">登录/注册</a></div>
+			<div class="r_nr"><a href="mylearning.html">我的学习</a>&nbsp;<a href="#">消息<em id="msg_num">2</em></a>&nbsp;<a href="shopcart.html">购物车<em id="buy_num">2</em></a>&nbsp;<a href="${baseurl }/login.jsp">登录/注册</a></div>
 		</div>
 	</div>
 

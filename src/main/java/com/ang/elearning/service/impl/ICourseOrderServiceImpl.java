@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.ang.elearning.dao.CourseMapper;
 import com.ang.elearning.po.Course;
-import com.ang.elearning.service.ICourseOrderService;
+import com.ang.elearning.service.ICourseOrderService2;
 
-@Service("courseorderService")
-public class ICourseOrderServiceImpl implements ICourseOrderService{
+@Service("courseorderService2")
+public class ICourseOrderServiceImpl implements ICourseOrderService2{
 
 	@Resource
 	private CourseMapper courseDao;
@@ -20,5 +20,6 @@ public class ICourseOrderServiceImpl implements ICourseOrderService{
 	public List<Course> getCourseByUserId(int user_id) {
 		return courseDao.getCourseByUserId(user_id);
 	}
+
 
 }

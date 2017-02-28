@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ang.elearning.po.Course;
-import com.ang.elearning.service.ICourseOrderService;
+import com.ang.elearning.service.ICourseOrderService2;
 import com.ang.elearning.service.ICourse_UserService;
 import com.ang.elearning.service.IICourseService;
 import com.ang.elearning.service.IUserService;
@@ -31,7 +31,7 @@ public class ICourseController {
 	private ICourse_UserService course_userservice;
 	
 	@Resource
-	private ICourseOrderService courseorderservice;
+	private ICourseOrderService2 courseorderservice2;
 	
 	@RequestMapping(value="/getAll")
 	public ModelAndView getAll(Map<String,Integer[]> map){
@@ -76,7 +76,7 @@ public class ICourseController {
 	@RequestMapping(value="/getShopCart")
 	public ModelAndView getShopCart(@RequestParam(value="id") int id){
 		ModelAndView mv = new ModelAndView();
-		List<Course> courses = courseorderservice.getCourseByUserId(id);
+		List<Course> courses = courseorderservice2.getCourseByUserId(id);
 		mv.addObject("course", courses);
 		mv.setViewName("course/shopcart");
 		return mv;

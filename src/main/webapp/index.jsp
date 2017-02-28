@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <%-- <a href="${pageContext.request.contextPath }/icourse/getMain">点击进入</a> --%>
-    
-    <%
-      request.getRequestDispatcher("/course/index.jsp").forward(request, response);
-    %>
-    
+    <jsp:forward page="/course/index.jsp"></jsp:forward>
 </body>
 </html>

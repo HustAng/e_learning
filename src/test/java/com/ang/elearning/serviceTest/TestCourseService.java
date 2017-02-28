@@ -28,6 +28,12 @@ public class TestCourseService {
 		Course course=courseService.findCourseById(1);
 		System.out.println(course.getName());
 	}
+	//根据课程名称查找
+	@Test
+	public void testFindCourseByName() {
+		List<Course> course=courseService.findCourseByName("四级");
+		System.out.println(course.size());
+	}
 	//根据课程类型查找课程
 	@Test
 	public void testFindCourse()
@@ -40,15 +46,15 @@ public class TestCourseService {
 	public void insertCourse()
 	{
 		Course course=new Course();
-		course.setName("英语四级写作通关训练");
+		course.setName("英语四级阅读通关训练");
 		course.setTypeId(1);
-		course.setProfile("英语四级写作通关训练");
+		course.setProfile("英语四级阅读通关训练");
 		Calendar c= Calendar.getInstance();
 		c.setTime(new Date());
 		course.setStarttime(c.getTime());
 		c.add(Calendar.DATE, 20);
 		course.setEndtime(c.getTime());
-		course.setPrice(399f);
+		course.setPrice(499f);
 		course.setPeriod(32);
 		course.setTeacherId(1);
 		course.setDetailId(3);
@@ -63,6 +69,12 @@ public class TestCourseService {
 		course.setPrice(300f);
 		//course.setName("英语四级写作通关训练");
 		courseService.updateById(course);
+	}
+	@Test
+	public void selectAllCourse()
+	{
+		List<Course> list=courseService.findAllCourse();
+		System.out.println(list.size());
 	}
 
 }
